@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website - Custom Web Solutions for Melbourne Tradies</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #f97316; /* Orange-500 */
+            border-radius: 2px;
+        }
+        .accordion-button {
+            transition: all 0.3s ease-in-out;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .accordion-content.active {
+            max-height: 500px; /* Adjust as needed for content length */
+        }
+        .sample-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .sample-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-bg {
+            background-image: linear-gradient(to right, #fb923c, #f97316); /* Orange-400 to Orange-500 */
+        }
+        .btn-primary {
+            background-color: #f97316; /* Orange-500 */
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #ea580c; /* Orange-600 */
+        }
+        .bounce-animation {
+            animation: bounce-in 0.8s ease-out;
+        }
+        @keyframes bounce-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        /* Custom scrollbar for demo purposes if content overflows */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-f97316">Your<span class="text-gray-700">Web</span></a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#samples" class="text-gray-600 hover:text-f97316 font-medium">Our Work</a></li>
+                    <li><a href="#faq" class="text-gray-600 hover:text-f97316 font-medium">FAQ</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-f97316 font-medium">Get a Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20 md:py-32 rounded-b-3xl shadow-xl bounce-animation">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                Websites That Work Harder Than Your Toughest Tradie
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto">
+                Stop relying on bloated, slow CMS sites. We build lightning-fast, custom websites for Melbourne's tradies and service businesses.
+            </p>
+            <a href="#contact" class="inline-block bg-white text-f97316 px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
+                Get Your FREE Quote Now!
+            </a>
+        </div>
+    </section>
+
+    <!-- Proof / Samples Section -->
+    <section id="samples" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">See Our Work in Action</h2>
+            <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+                Don't just take our word for it. Explore real examples of high-performing websites we've built from the ground up for businesses like yours.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Sample 1 -->
+                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Plumber+Website" alt="Plumber Website Sample" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3 class="text-2xl font-semibold mb-2">Ace Plumbing Solutions</h3>
+                    <p class="text-gray-600 mb-4">A sleek, mobile-first design focused on lead generation for a local plumber.</p>
+                    <a href="https://example.com/plumber-site" target="_blank" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center">
+                        View Live Site
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Sample 2 -->
+                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Electrician+Website" alt="Electrician Website Sample" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3 class="text-2xl font-semibold mb-2">Sparky's Electrics</h3>
+                    <p class="text-gray-600 mb-4">Fast loading and easy navigation to book electrical services instantly.</p>
+                    <a href="https://example.com/electrician-site" target="_blank" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center">
+                        View Live Site
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Sample 3 -->
+                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Landscaper+Website" alt="Landscaper Website Sample" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3 class="text-2xl font-semibold mb-2">GreenThumb Landscaping</h3>
+                    <p class="text-gray-600 mb-4">Beautiful galleries and clear service offerings for a landscaping business.</p>
+                    <a href="https://example.com/landscaper-site" target="_blank" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center">
+                        View Live Site
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive FAQ Section -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">Your Questions, Answered.</h2>
+            <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+                We know you have questions, and we're here to give you straightforward answers. No hidden clauses, just transparency.
+            </p>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Question 1: Ownership -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>Do I own the IP once the site is done?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2">Absolutely, 100%! When we build your website, it's *your* website. You own all the intellectual property, including the code, design, and content. We simply build it for you. There are no ongoing licensing fees or proprietary systems locking you in. Complete transparency, complete ownership.</p>
+                    </div>
+                </div>
+
+                <!-- Question 2: CMS vs. Custom -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>Do you use a CMS, or just templates?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2"><strong>Hell no!</strong> We believe in crafting unique, high-performance digital assets. We don't use bloated Content Management Systems (CMS) like WordPress, Wix, or Shopify for our core builds. Every single website we deliver is coded from the ground up, typically managed with Git (like GitHub) for version control and deployment. This means zero unnecessary code, ultimate flexibility, and blazing-fast speeds. No templates, no hacks, just bespoke code.</p>
+                    </div>
+                </div>
+
+                <!-- Question 3: DIY Disaster -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>I've tried to build my own site on a CMS, can you save my DIY disaster?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2">You're not alone! Many tradies attempt DIY websites only to find them slow, inflexible, or just not professional enough. We can absolutely help. We'll assess what's salvageable from your existing efforts (content, branding assets etc.) and then use that as a foundation to build a completely new, high-performance, custom website from the ground up. We turn your 'disaster' into a digital asset that works for you.</p>
+                    </div>
+                </div>
+
+                <!-- Question 4: Speed / Bloat -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>Are your websites fast and not bloated like a CMS?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2">Yes, it's one of our core promises! Traditional CMS platforms are notorious for being bloated with unnecessary features, plugins, and code that slow them down. Because we code from scratch, we include only what's absolutely essential for your business. This results in incredibly fast loading times, superior SEO performance, and a smoother experience for your potential customers. Our websites are built to perform, not to bloat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Quote Generating Section -->
+    <section id="contact" class="gradient-bg text-white py-20 rounded-t-3xl shadow-xl">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Ready for a Website That Generates Leads?
+            </h2>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto">
+                Our websites aren't just pretty faces; they're quote-generating motherf*cking machines! Let's build yours.
+            </p>
+            <button id="openQuoteModal" class="inline-block bg-white text-f97316 px-12 py-5 rounded-full text-xl font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
+                Get Your Custom Quote!
+            </button>
+        </div>
+    </section>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full relative transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+            <button id="closeQuoteModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold leading-none">&times;</button>
+            <h3 class="text-3xl font-bold text-center text-f97316 mb-6">Tell Us About Your Project</h3>
+            <p class="text-center text-gray-600 mb-6">Fill out the form below and we'll get back to you with a tailored quote.</p>
+            
+            <form id="quoteForm" class="space-y-4">
+                <div>
+                    <label for="businessName" class="block text-gray-700 text-sm font-bold mb-2">Your Business Name</label>
+                    <input type="text" id="businessName" name="businessName" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-f97316" placeholder="e.g., Melbourne Plumbing Pros" required>
+                </div>
+                <div>
+                    <label for="contactEmail" class="block text-gray-700 text-sm font-bold mb-2">Your Email</label>
+                    <input type="email" id="contactEmail" name="contactEmail" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-f97316" placeholder="you@example.com" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Your Phone (Optional)</label>
+                    <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-f97316" placeholder="04XX XXX XXX">
+                </div>
+                <div>
+                    <label for="projectDetails" class="block text-gray-700 text-sm font-bold mb-2">Tell us about your website needs:</label>
+                    <textarea id="projectDetails" name="projectDetails" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-f97316" placeholder="e.g., I need a new website for my landscaping business. I want to show off my portfolio and have a contact form for leads."></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transform hover:scale-105 transition duration-300">
+                    Get My Quote!
+                </button>
+                <p id="formMessage" class="text-center text-sm mt-4 text-gray-600"></p>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Your Website. All rights reserved. Crafted for Melbourne Tradies.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion Functionality
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+
+                button.classList.toggle('bg-gray-100'); // Toggle background on click
+
+                // Close other open accordions
+                document.querySelectorAll('.accordion-button').forEach(otherButton => {
+                    if (otherButton !== button && otherButton.classList.contains('bg-gray-100')) {
+                        otherButton.classList.remove('bg-gray-100');
+                        otherButton.nextElementSibling.classList.remove('active');
+                        otherButton.querySelector('svg').classList.remove('rotate-180');
+                    }
+                });
+
+                accordionContent.classList.toggle('active');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Quote Modal Functionality
+        const openQuoteModalBtn = document.getElementById('openQuoteModal');
+        const closeQuoteModalBtn = document.getElementById('closeQuoteModal');
+        const quoteModal = document.getElementById('quoteModal');
+        const modalContent = document.getElementById('modalContent');
+        const quoteForm = document.getElementById('quoteForm');
+        const formMessage = document.getElementById('formMessage');
+
+        openQuoteModalBtn.addEventListener('click', () => {
+            quoteModal.classList.remove('hidden');
+            // Animate modal in
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        });
+
+        closeQuoteModalBtn.addEventListener('click', () => {
+            // Animate modal out
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                quoteModal.classList.add('hidden');
+            }, 300); // Allow time for animation
+        });
+
+        // Close modal when clicking outside of it
+        quoteModal.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                // Animate modal out
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    quoteModal.classList.add('hidden');
+                }, 300); // Allow time for animation
+            }
+        });
+
+        quoteForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            formMessage.textContent = 'Sending your request...';
+            formMessage.classList.remove('text-green-600', 'text-red-600');
+            formMessage.classList.add('text-gray-600');
+
+            // Simulate API call for quote generation
+            // In a real application, you would send this data to a backend server.
+            const formData = {
+                businessName: document.getElementById('businessName').value,
+                contactEmail: document.getElementById('contactEmail').value,
+                phone: document.getElementById('phone').value,
+                projectDetails: document.getElementById('projectDetails').value
+            };
+
+            try {
+                // Placeholder for actual API call to your backend or a service like Google Forms, SendGrid etc.
+                // console.log('Simulating API call with data:', formData);
+
+                // --- LLM Integration for a custom response (conceptual) ---
+                // If you wanted to use an LLM to generate a personalized *initial* response
+                // or summary based on the project details, you could integrate it here.
+                // For this example, we'll keep it simple and just simulate a success.
+
+                let chatHistory = [];
+                const prompt = `A user has submitted a quote request for a website. Their business name is "${formData.businessName}", email is "${formData.contactEmail}", and project details are: "${formData.projectDetails}". Please draft a polite, encouraging, and brief confirmation message acknowledging their request and stating that a human will review it and get back to them within 24-48 hours. Focus on building trust and excitement about solving their "DIY disaster" or building a "quote-generating machine."`;
+
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // Canvas will provide this automatically at runtime
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                let llmResponseText = "Thank you for your submission! We've received your request and will be in touch shortly.";
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    llmResponseText = result.candidates[0].content.parts[0].text;
+                } else {
+                    console.error("LLM response structure unexpected:", result);
+                }
+                // --- End LLM Integration (conceptual) ---
+
+
+                await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
+                
+                formMessage.textContent = llmResponseText;
+                formMessage.classList.remove('text-gray-600');
+                formMessage.classList.add('text-green-600');
+                quoteForm.reset(); // Clear the form
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formMessage.textContent = 'There was an error sending your request. Please try again or contact us directly.';
+                formMessage.classList.remove('text-gray-600');
+                formMessage.classList.add('text-red-600');
+            }
+        });
+
+        // Initialize accordion state on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply bounce animation to the hero section on load
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.classList.add('bounce-animation');
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Existing Global Styles */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f8f8;
@@ -90,11 +91,10 @@
             background: #555;
         }
 
-        /* Custom styles for Creative365 contact form (if still used) */
+        /* Styles for the original contact form (in modal) */
         .form-group-creative {
             margin-bottom: 1.5rem;
         }
-
         .form-group-creative label {
             display: block;
             color: #333;
@@ -102,7 +102,6 @@
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
-
         .form-group-creative input[type="text"],
         .form-group-creative input[type="email"],
         .form-group-creative input[type="tel"],
@@ -118,7 +117,6 @@
             background-color: #fff;
             transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-
         .form-group-creative input[type="text"]:focus,
         .form-group-creative input[type="email"]:focus,
         .form-group-creative input[type="tel"]:focus,
@@ -129,17 +127,14 @@
             box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
             outline: none;
         }
-
         .form-group-creative textarea {
             min-height: 100px;
             resize: vertical;
         }
-
         .form-group-creative input[type="radio"] {
             margin-right: 0.5rem;
             accent-color: #f97316; /* Changes the color of the radio button itself */
         }
-
         .form-error-message {
             color: #dc2626; /* Red-600 */
             font-size: 0.875rem;
@@ -168,18 +163,15 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .step-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
-
         .step-card .step-icon {
             font-size: 3rem;
             color: #f97316;
             margin-bottom: 1rem;
         }
-
         .step-card .step-number {
             display: inline-block;
             background-color: #f97316;
@@ -202,58 +194,75 @@
             max-height: 0;
             opacity: 0;
         }
-
         .mobile-menu.active {
             max-height: 500px; /* Adjust as needed for menu content */
             opacity: 1;
         }
 
-        /* Ensure form labels and inputs are aligned for desktop */
-        @media (min-width: 768px) {
-            .form-group-creative label {
-                text-align: left;
-            }
-        }
-
-        /* Styles for the new interactive quote form */
-        .quote-container {
-            background-color: #ffffff;
+        /* Interactive Quote Form Styles */
+        #quote-builder .quote-panel {
+            background-color: #ffffff; /* White floating panel */
             padding: 30px 40px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             max-width: 700px;
             width: 100%;
-            margin: 0 auto; /* Center the form */
+            margin: 0 auto; /* Center the panel */
+            margin-top: 3rem; /* Space below section heading */
         }
 
-        .quote-container h1 {
+        #quote-builder h1, #quote-builder h2 { /* Targeting headings within the quote builder section */
             text-align: center;
-            color: #333;
+            color: #ffffff; /* White for headings on orange background */
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        #quote-builder h1 { font-size: 2.8em; } /* Larger for main section heading */
+        #quote-builder h2 { font-size: 1.8em; } /* Smaller for panel heading, but still prominent */
+
+        #quote-builder p {
+             color: rgba(255, 255, 255, 0.9); /* Lighter white for text on orange background */
+             text-align: center;
+             max-width: 700px;
+             margin: 0 auto;
+        }
+
+        .quote-panel h3 { /* Inside the white panel */
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #f97316; /* Orange for panel title */
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .quote-panel h4 { /* Panel subheading */
+            font-size: 1.2em;
+            color: #666;
+            text-align: center;
             margin-bottom: 30px;
-            font-size: 2.2em; /* Adjusted for better hierarchy */
         }
 
-        .quote-container h2 {
-            color: #28a745;
-            margin-bottom: 15px;
-            font-size: 1.6em; /* Adjusted for better hierarchy */
-            text-align: center;
-        }
-
-        .package-inclusions ul {
+        .included-features ul {
             list-style: none;
             padding: 0;
             margin-bottom: 30px;
+            text-align: left; /* Left align the included list */
         }
 
-        .package-inclusions li {
-            background-color: #e9f7ef;
+        .included-features li {
+            background-color: #e9f7ef; /* Light green background */
             padding: 10px 15px;
             margin-bottom: 8px;
             border-radius: 5px;
-            color: #218838;
+            color: #218838; /* Dark green text */
             font-weight: bold;
-            text-align: center; /* Center inclusions for better look */
+            display: flex; /* For tick and text alignment */
+            align-items: center;
+            font-size: 1.1em;
+        }
+        .included-features li::before {
+            content: '✅'; /* Green tick icon */
+            margin-right: 10px;
+            font-size: 1.2em;
         }
 
         .form-section {
@@ -263,16 +272,15 @@
             border-radius: 8px;
             background-color: #fdfdfd;
         }
-
         .form-section label {
             display: block;
             margin-bottom: 8px;
             color: #555;
             font-weight: bold;
         }
-
         .form-section input[type="text"],
-        .form-section select {
+        .form-section select,
+        .form-section input[type="radio"] { /* Apply to direct inputs in form-section */
             width: calc(100% - 20px);
             padding: 10px;
             border: 1px solid #ccc;
@@ -283,15 +291,94 @@
 
         .form-section input[type="radio"],
         .form-section input[type="checkbox"] {
+            width: auto; /* Override full width for radios/checkboxes */
             margin-right: 8px;
             accent-color: #f97316; /* Match existing theme */
         }
-
         .form-section p {
             margin-bottom: 10px;
             font-weight: bold;
             color: #444;
+            text-align: left; /* Ensure question text is left aligned */
         }
+
+        /* Styles for Add-on Sections (collapsible) */
+        .add-on-section {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden; /* For smooth max-height transition */
+            background-color: #fdfdfd;
+        }
+
+        .add-on-header {
+            width: 100%;
+            padding: 15px;
+            background-color: #f0f0f0; /* Light grey for collapsed header */
+            border: none;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-on-header:hover {
+            background-color: #e5e5e5;
+        }
+
+        .add-on-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding: 0 15px; /* Padding for content when open */
+        }
+
+        .add-on-content.active {
+            max-height: 300px; /* Adjust based on content height */
+            padding-bottom: 15px; /* Add bottom padding when active */
+        }
+
+        .toggle-icon {
+            font-size: 1.5em;
+            color: #f97316; /* Orange color for the icon */
+            transition: transform 0.3s ease;
+        }
+
+        .add-on-header.active .toggle-icon {
+            transform: rotate(45deg); /* Rotate for minus effect */
+        }
+        .add-on-header.active {
+            background-color: #e9f7ef; /* Light green when active */
+            color: #218838; /* Dark green text when active */
+        }
+
+        /* Ensure inputs/selects inside add-on-content inherit styles */
+        .add-on-content label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .add-on-content p { /* For question inside add-on-content */
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: normal; /* Less bold than header */
+            color: #444;
+        }
+        .add-on-content input[type="text"],
+        .add-on-content select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
 
         button#getPricingBtn {
             display: block;
@@ -304,6 +391,7 @@
             font-size: 1.2em;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-top: 30px;
         }
 
         button#getPricingBtn:hover {
@@ -324,6 +412,12 @@
 
         .pricing-result p {
             margin: 10px 0;
+            text-align: left;
+        }
+        .pricing-result h3 {
+            color: #f97316;
+            font-size: 1.5em;
+            margin-top: 20px;
         }
 
         .pricing-result strong {
@@ -335,18 +429,12 @@
             padding: 0;
             margin-top: 10px;
             margin-bottom: 15px;
+            text-align: left;
         }
 
         .pricing-result ul li {
             padding: 5px 0;
             color: #555;
-        }
-
-        /* Ensure the quote form itself is within a section for proper spacing */
-        .section-quote-form {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-            background-color: #f8f8f8; /* Match body background */
         }
     </style>
 </head>
@@ -359,10 +447,10 @@
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="#samples" class="text-gray-600 hover:text-f97316 font-medium">Our Work</a></li>
-                    <li><a href="#about" class="text-gray-600 hover:text-f97316 font-medium">About</a></li>
+                    <li><a href="#quote-builder" class="text-gray-600 hover:text-f97316 font-medium">Build Your Quote</a></li> <li><a href="#about" class="text-gray-600 hover:text-f97316 font-medium">About</a></li>
                     <li><a href="#how-it-works" class="text-gray-600 hover:text-f97316 font-medium">How it Works</a></li>
                     <li><a href="#faq" class="text-gray-600 hover:text-f97316 font-medium">FAQ</a></li>
-                    <li><a href="#quote-builder" class="text-gray-600 hover:text-f97316 font-medium">Build Your Quote</a></li> <li><a href="#contact-modal-trigger" class="text-f97316 hover:text-ea580c font-bold">Get a Quote Call</a></li> </ul>
+                    <li><a href="#contact-modal-trigger" class="text-f97316 hover:text-ea580c font-bold">Get a Quote Call</a></li> </ul>
             </nav>
 
             <button id="mobileMenuButton" class="md:hidden p-2 text-gray-700 hover:text-f97316 focus:outline-none">
@@ -375,10 +463,10 @@
         <nav id="mobileMenu" class="mobile-menu md:hidden bg-white shadow-inner pt-2 pb-4">
             <ul class="flex flex-col items-center space-y-4">
                 <li><a href="#samples" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">Our Work</a></li>
-                <li><a href="#about" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">About</a></li>
+                <li><a href="#quote-builder" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">Build Your Quote</a></li> <li><a href="#about" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">About</a></li>
                 <li><a href="#how-it-works" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">How it Works</a></li>
                 <li><a href="#faq" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">FAQ</a></li>
-                <li><a href="#quote-builder" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">Build Your Quote</a></li> <li><a href="#contact-modal-trigger" class="text-f97316 hover:text-ea580c font-bold text-lg block py-2">Get a Quote Call</a></li> </ul>
+                <li><a href="#contact-modal-trigger" class="text-f97316 hover:text-ea580c font-bold text-lg block py-2">Get a Quote Call</a></li> </ul>
         </nav>
     </header>
 
@@ -433,20 +521,27 @@
 
     ---
 
-    <section id="quote-builder" class="section-quote-form">
+    <section id="quote-builder" class="gradient-bg py-16">
         <div class="container mx-auto px-4">
-            <div class="quote-container">
-                <h1>BUILD YOUR PACKAGE</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold section-title mx-auto">
+                Craft Your High-Converting Website Package
+            </h1>
+            <p class="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mt-4">
+                Every tradie business is unique, and so is our pricing. Use this guide to explore our indicative packages and build a solution tailored to your needs. The final quote will reflect your specific project complexities.
+            </p>
 
-                <div class="package-inclusions">
-                    <h2>Standard Inclusions:</h2>
+            <div class="quote-panel">
+                <h3 class="font-extrabold">High Converting Website</h3>
+                <h4>For all trades and residential service based businesses</h4>
+
+                <div class="included-features">
                     <ul>
-                        <li>✅ SEO Optimisation</li>
-                        <li>✅ FREE Hosting</li>
-                        <li>✅ SSL Certificate and Securities</li>
-                        <li>✅ Site Speed Optimized</li>
-                        <li>✅ Custom Quote Form / Integration of CMS Form</li>
-                        <li>✅ NO ONGOING COSTS</li>
+                        <li>SEO Optimisation</li>
+                        <li>FREE Hosting</li>
+                        <li>SSL Certificate and Securities</li>
+                        <li>Site Speed Optimized</li>
+                        <li>Custom Quote Form / Integration of CMS Form</li>
+                        <li>NO ONGOING COSTS</li>
                     </ul>
                 </div>
 
@@ -456,54 +551,96 @@
                         <input type="text" id="serviceTrade" name="serviceTrade" placeholder="e.g., Plumbing, Consulting, E-commerce" required>
                     </div>
 
-                    <div class="form-section">
-                        <p>2. How many website pages do you need?</p>
-                        <label><input type="radio" name="numPages" value="1" required> 1</label><br>
-                        <label><input type="radio" name="numPages" value="1-3"> 1-3</label><br>
-                        <label><input type="radio" name="numPages" value="3-5"> 3-5</label>
+                    <div class="add-on-section">
+                        <button type="button" class="add-on-header">
+                            <span>2. How many website pages do you need?</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="add-on-content">
+                            <p>Select your desired number of pages:</p>
+                            <label><input type="radio" name="numPages" value="1" required> 1 Page (Basic Landing)</label><br>
+                            <label><input type="radio" name="numPages" value="1-3"> 1-3 Pages (Standard Site)</label><br>
+                            <label><input type="radio" name="numPages" value="3-5"> 3-5 Pages (Detailed Site)</label>
+                        </div>
                     </div>
 
-                    <div class="form-section">
-                        <p>3. How many revisions would you like?</p>
-                        <label><input type="radio" name="numRevisions" value="2" required> 2</label><br>
-                        <label><input type="radio" name="numRevisions" value="3"> 3</label><br>
-                        <label><input type="radio" name="numRevisions" value="4"> 4</label>
+                    <div class="add-on-section">
+                        <button type="button" class="add-on-header">
+                            <span>3. How many revisions would you like?</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="add-on-content">
+                            <p>Choose your revision preference:</p>
+                            <label><input type="radio" name="numRevisions" value="2" required> 2 Revisions</label><br>
+                            <label><input type="radio" name="numRevisions" value="3"> 3 Revisions</label><br>
+                            <label><input type="radio" name="numRevisions" value="4"> 4 Revisions</label>
+                        </div>
                     </div>
 
-                    <div class="form-section">
-                        <p>6. Do you have your own domain?</p>
-                        <label><input type="radio" name="ownDomain" value="yes" required> Yes</label><br>
-                        <label><input type="radio" name="ownDomain" value="no"> No</label>
+                    <div class="add-on-section">
+                        <button type="button" class="add-on-header">
+                            <span>6. Do you have your own domain?</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="add-on-content">
+                            <p>Tell us about your domain:</p>
+                            <label><input type="radio" name="ownDomain" value="yes" required> Yes, I have one.</label><br>
+                            <label><input type="radio" name="ownDomain" value="no"> No, I need one registered.</label>
+                        </div>
                     </div>
 
-                    <div class="form-section">
-                        <p>9. Do you currently use a CMS? (Jobber, Servicem8 etc)</p>
-                        <select id="cmsUsed" name="cmsUsed">
-                            <option value="">Select one</option>
-                            <option value="Jobber">Jobber</option>
-                            <option value="Servicem8">Servicem8</option>
-                            <option value="Other">Other</option>
-                            <option value="None">None</option>
-                        </select>
+                    <div class="add-on-section">
+                        <button type="button" class="add-on-header">
+                            <span>9. Do you currently use a CMS? (Jobber, Servicem8 etc)</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="add-on-content">
+                            <p>Select your current CMS:</p>
+                            <select id="cmsUsed" name="cmsUsed">
+                                <option value="">Select one</option>
+                                <option value="Jobber">Jobber</option>
+                                <option value="Servicem8">Servicem8</option>
+                                <option value="Other">Other</option>
+                                <option value="None">None</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-section">
-                        <p>11. Would you like us to write all the website content?</p>
-                        <label><input type="radio" name="writeContent" value="yes" required> Yes</label><br>
-                        <label><input type="radio" name="writeContent" value="no"> No</label>
+                    <div class="add-on-section">
+                        <button type="button" class="add-on-header">
+                            <span>11. Would you like us to write all the website content?</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="add-on-content">
+                            <p>Content creation option:</p>
+                            <label><input type="radio" name="writeContent" value="yes" required> Yes, please write content for me.</label><br>
+                            <label><input type="radio" name="writeContent" value="no"> No, I will provide the content.</label>
+                        </div>
                     </div>
 
-                    <div class="form-section">
-                        <p>12. Do you need any specialised functions? (Select all that apply)</p>
-                        <label><input type="checkbox" name="specialFunctions" value="Embedded Calculator"> Embedded Calculator</label><br>
-                        <label><input type="checkbox" name="specialFunctions" value="Pop-up Quote Form"> Pop-up Quote Form</label><br>
-                        <label><input type="checkbox" name="specialFunctions" value="Booking Calendar"> Booking Calendar</label>
+                    <div class="add-on-section">
+                        <button type="button" class="add-on-header">
+                            <span>12. Do you need any specialised functions?</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="add-on-content">
+                            <p>Select all specialized functions you need:</p>
+                            <label><input type="checkbox" name="specialFunctions" value="Embedded Calculator"> Embedded Calculator</label><br>
+                            <label><input type="checkbox" name="specialFunctions" value="Pop-up Quote Form"> Pop-up Quote Form</label><br>
+                            <label><input type="checkbox" name="specialFunctions" value="Booking Calendar"> Booking Calendar</label>
+                        </div>
                     </div>
 
-                    <div class="form-section">
-                        <p>13. Do you need to link Google Reviews to your website?</p>
-                        <label><input type="radio" name="googleReviews" value="yes" required> Yes</label><br>
-                        <label><input type="radio" name="googleReviews" value="no"> No</label>
+                    <div class="add-on-section">
+                        <button type="button" class="add-on-header">
+                            <span>13. Do you need to link Google Reviews to your website?</span>
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="add-on-content">
+                            <p>Google Reviews integration:</p>
+                            <label><input type="radio" name="googleReviews" value="yes" required> Yes</label><br>
+                            <label><input type="radio" name="googleReviews" value="no"> No</label>
+                        </div>
                     </div>
 
                     <button type="submit" id="getPricingBtn">GET PRICING</button>
@@ -635,7 +772,7 @@
             <p class="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto">
                 Our websites aren't just pretty faces; they're quote-generating motherf*cking machines! Let's build yours.
             </p>
-            <button id="openQuoteModal" class="inline-block bg-white text-f97316 px-12 py-5 rounded-full text-xl font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
+            <button id="openContactModal" class="inline-block bg-white text-f97316 px-12 py-5 rounded-full text-xl font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
                 Get Your Custom Quote!
             </button>
         </div>
@@ -648,6 +785,7 @@
             <p id="iframeError" class="text-red-600 text-center mt-4 hidden">This website cannot be displayed directly here due to security restrictions.</p>
         </div>
     </div>
+
 
     <div id="quoteModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
         <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full relative transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
@@ -746,7 +884,7 @@
     </footer>
 
     <script>
-        // Accordion Functionality
+        // Accordion Functionality for FAQ
         document.querySelectorAll('.accordion-button').forEach(button => {
             button.addEventListener('click', () => {
                 const accordionContent = button.nextElementSibling;
@@ -785,14 +923,14 @@
 
 
         // Original "Get a Quote" Modal Functionality (for scheduling a call)
-        const openQuoteModalBtn = document.getElementById('openQuoteModal');
+        const openContactModalBtn = document.getElementById('openContactModal'); // Renamed ID
         const closeQuoteModalBtn = document.getElementById('closeQuoteModal');
         const quoteModal = document.getElementById('quoteModal');
         const modalContent = document.getElementById('modalContent');
         const creative365ContactForm = document.getElementById('creative365ContactForm'); 
         const formMessage = document.getElementById('formMessage');
 
-        openQuoteModalBtn.addEventListener('click', () => {
+        openContactModalBtn.addEventListener('click', () => { // Event listener for the original modal button
             quoteModal.classList.remove('hidden');
             setTimeout(() => {
                 modalContent.classList.remove('scale-95', 'opacity-0');
@@ -1010,6 +1148,24 @@
         // --- New Interactive Quote Form Logic ---
         const quoteForm = document.getElementById('quoteForm');
         const pricingResultDiv = document.getElementById('pricingResult');
+
+        // Toggle functionality for add-on sections
+        document.querySelectorAll('.add-on-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.toggle-icon');
+
+                header.classList.toggle('active');
+                content.classList.toggle('active');
+
+                if (content.classList.contains('active')) {
+                    icon.textContent = '−'; // Change to minus
+                } else {
+                    icon.textContent = '+'; // Change back to plus
+                }
+            });
+        });
+
 
         quoteForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission

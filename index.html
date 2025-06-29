@@ -317,13 +317,13 @@
         #samples h2.section-title { /* Target the specific h2 with section-title class */
             text-align: left; /* Aligned to left */
             margin-left: 0; /* Ensures it starts from the left edge of its container */
-            margin-right: auto; 
-            width: fit-content; 
-            float: none; 
-            display: block; 
+            margin-right: auto;
+            width: fit-content;
+            float: none;
+            display: block;
             max-width: 1200px; /* Constrain width as before */
             /* Added padding from container to match text align */
-            padding-left: 1rem; 
+            padding-left: 1rem;
             padding-right: 1rem;
         }
         /* Adjust section-title::after for left alignment if needed, but it's relative so it should follow */
@@ -333,72 +333,72 @@
         }
 
 
-        #samples .grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 2rem; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+        #samples .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .sample-item { 
-            background-color: #ffffff; 
+        .sample-item {
+            background-color: #ffffff;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             flex: 1 1 300px; /* Flex-grow, flex-shrink, and base width for equal sizing */
             max-width: 350px; /* Maintain max-width */
-            text-align: center; 
-            display: flex; 
-            flex-direction: column; 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
             /* Removed justify-content: space-between; */
-            align-items: center; 
+            align-items: center;
             /* height: 250px; Removed fixed height to allow content to dictate height */
             /* Min-height to ensure a consistent minimum size even with short titles */
-            min-height: 180px; /* Adjusted minimum height */
+            min-height: 180px; /* Adjusted minimum height for desktop */
             gap: 1rem; /* Add gap between elements inside the panel */
         }
 
-        .sample-item h3 { 
-            font-family: 'Inter', sans-serif; 
-            font-size: 1.7rem; 
-            color: #333; 
+        .sample-item h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.7rem;
+            color: #333;
             /* Removed margin-bottom and instead rely on flex gap or add a smaller margin */
             margin-bottom: 0.5rem; /* Reduced margin to control spacing */
-            text-align: center; 
+            text-align: center;
             font-weight: 700;
-            line-height: 1.2; 
+            line-height: 1.2;
         }
         
         .sample-item p { /* This p tag will not be in the final HTML but is here for reference */
-            font-family: 'Inter', sans-serif; 
-            font-size: 1.2rem; 
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
             color: #555;
             line-height: 1.5;
-            margin-bottom: 1.5rem; 
-            flex-grow: 1; 
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
             text-align: center;
         }
 
-        .sample-item .open-live-site-modal { 
+        .sample-item .open-live-site-modal {
             background-color: #f97316; /* Changed to orange */
             color: #fff;
             border: none;
             padding: 0.8rem 2rem;
-            font-size: 1rem; 
-            font-family: 'Inter', sans-serif; 
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
             text-transform: uppercase;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-weight: bold;
-            display: block; 
-            width: fit-content; 
+            display: block;
+            width: fit-content;
             margin-top: auto; /* Push button to the bottom if there's extra space, or just use margin-top */
             margin-left: auto; /* Center button */
             margin-right: auto; /* Center button */
-            text-decoration: none; 
+            text-decoration: none;
         }
 
         .sample-item .open-live-site-modal:hover {
@@ -408,7 +408,7 @@
         /* Mobile Media Queries for Samples Section */
         @media (max-width: 767px) {
             #samples h2.section-title {
-                font-size: 1.8rem; 
+                font-size: 1.8rem;
                 margin-bottom: 1.5rem;
                 text-align: center; /* Center on mobile to align with paragraph */
                 padding-left: 0; /* Remove padding on mobile */
@@ -420,26 +420,31 @@
             }
 
             #samples .grid {
-                flex-direction: column; 
-                align-items: center; 
+                flex-direction: column;
+                align-items: center;
             }
 
             .sample-item {
                 padding: 1.5rem;
-                min-width: unset; 
-                max-width: 90%; 
-                margin-left: auto; 
+                min-width: unset;
+                max-width: 90%;
+                margin-left: auto;
                 margin-right: auto;
-                min-height: 150px; /* Adjusted min-height for mobile */
+                /* REFINED: Removed fixed min-height for mobile to allow content to truly shrink */
+                min-height: unset; /* Let content dictate height on mobile for minimal spacing */
+                height: auto; /* Ensure height is auto */
+                padding-bottom: 1rem; /* Ensure some padding at the bottom */
             }
 
             .sample-item h3 {
-                font-size: 1.5rem; 
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem; /* Slightly more margin for title on mobile */
             }
 
             .sample-item .open-live-site-modal {
-                font-size: 0.9rem; 
+                font-size: 0.9rem;
                 padding: 0.7rem 1.8rem;
+                margin-top: 1rem; /* Ensure some space above button on mobile */
             }
         }
     </style>

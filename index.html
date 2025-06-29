@@ -315,15 +315,15 @@
         }
 
         #samples h2.section-title { /* Target the specific h2 with section-title class */
-            /* Removed text-center from HTML, now aligning here */
             text-align: left; /* Aligned to left */
-            margin-left: auto; /* Remove auto to allow alignment to take effect */
-            margin-right: auto; /* Remove auto to allow alignment to take effect */
-            width: fit-content; /* Ensure the underline aligns with content */
-            float: none; /* Clear any floats if they were implied */
-            display: block; /* Ensure it takes full width for text-align to work, or use specific margins */
+            margin-left: 0; /* Ensures it starts from the left edge of its container */
+            margin-right: auto; 
+            width: fit-content; 
+            float: none; 
+            display: block; 
             max-width: 1200px; /* Constrain width as before */
-            padding-left: 1rem; /* Add padding to match content alignment */
+            /* Added padding from container to match text align */
+            padding-left: 1rem; 
             padding-right: 1rem;
         }
         /* Adjust section-title::after for left alignment if needed, but it's relative so it should follow */
@@ -352,19 +352,23 @@
             text-align: center; 
             display: flex; 
             flex-direction: column; 
-            justify-content: space-between; /* Distribute space to push button down */
+            /* Removed justify-content: space-between; */
             align-items: center; 
-            height: 250px; /* Fixed height for consistency */
+            /* height: 250px; Removed fixed height to allow content to dictate height */
+            /* Min-height to ensure a consistent minimum size even with short titles */
+            min-height: 180px; /* Adjusted minimum height */
+            gap: 1rem; /* Add gap between elements inside the panel */
         }
 
         .sample-item h3 { 
             font-family: 'Inter', sans-serif; 
-            font-size: 1.7rem; /* Keep original font size */
+            font-size: 1.7rem; 
             color: #333; 
-            margin-bottom: 1rem;
+            /* Removed margin-bottom and instead rely on flex gap or add a smaller margin */
+            margin-bottom: 0.5rem; /* Reduced margin to control spacing */
             text-align: center; 
             font-weight: 700;
-            line-height: 1.2; /* Allow two lines for title */
+            line-height: 1.2; 
         }
         
         .sample-item p { /* This p tag will not be in the final HTML but is here for reference */
@@ -382,7 +386,7 @@
             color: #fff;
             border: none;
             padding: 0.8rem 2rem;
-            font-size: 1rem; /* Keep original font size */
+            font-size: 1rem; 
             font-family: 'Inter', sans-serif; 
             text-transform: uppercase;
             border-radius: 8px;
@@ -391,7 +395,9 @@
             font-weight: bold;
             display: block; 
             width: fit-content; 
-            margin: 0 auto; 
+            margin-top: auto; /* Push button to the bottom if there's extra space, or just use margin-top */
+            margin-left: auto; /* Center button */
+            margin-right: auto; /* Center button */
             text-decoration: none; 
         }
 
@@ -424,7 +430,7 @@
                 max-width: 90%; 
                 margin-left: auto; 
                 margin-right: auto;
-                height: 200px; /* Adjusted height for mobile */
+                min-height: 150px; /* Adjusted min-height for mobile */
             }
 
             .sample-item h3 {
@@ -495,21 +501,24 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Electrician<br>Website</h3> <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="open-live-site-modal">
+                    <h3>Electrician<br>Website</h3>
+                    <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Junk Removal<br>Website</h3> <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="open-live-site-modal">
+                    <h3>Junk Removal<br>Website</h3>
+                    <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Plumbing<br>Website</h3> <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="open-live-site-modal">
+                    <h3>Plumbing<br>Website</h3>
+                    <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>

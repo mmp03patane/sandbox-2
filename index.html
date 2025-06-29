@@ -317,11 +317,36 @@
             font-weight: 700; /* Replicates font-bold */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replicates shadow-md */
             transition: background-color 0.3s ease; /* For smooth hover */
-            display: inline-block; /* Essential for padding and width */
+            display: inline-flex; /* Essential for padding and width, changed to flex for icon alignment */
+            align-items: center; /* Vertically align content */
+            gap: 0.5rem; /* Space between text and icon */
         }
 
         .view-site-button:hover {
             background-color: #ea580c; /* Your darker orange for hover */
+        }
+
+        /* New styles for clickable title */
+        .site-title-link {
+            color: #f97316; /* Orange color for the title link */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .site-title-link:hover {
+            color: #ea580c; /* Darker orange on hover */
+        }
+        
+        .external-link-icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            margin-left: 0.25em;
         }
     </style>
 </head>
@@ -382,24 +407,43 @@
             👇 Below are mockups of high-performing websites I build from scratch
         </p>
 
-        <div class="flex flex-col space-y-8"> <div class="text-left"> 
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">⚡ Electrician Website</h3>
-                <a href="https://mmp03patane.github.io/ELECTRIC/" target="_blank" class="view-site-button">
+        <div class="flex flex-col space-y-8"> 
+            <div class="text-left"> 
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                    <a href="https://mmp03patane.github.io/ELECTRIC/" class="site-title-link" data-url="https://mmp03patane.github.io/ELECTRIC/">
+                        ⚡ Electrician Website
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </h3>
+                <a href="https://mmp03patane.github.io/ELECTRIC/" class="view-site-button" data-url="https://mmp03patane.github.io/ELECTRIC/">
                     View Site
+                    <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </div>
 
             <div class="text-left"> 
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">♻️ Junk Removal Website</h3>
-                <a href="https://mmp03patane.github.io/JUNK/" target="_blank" class="view-site-button">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                    <a href="https://mmp03patane.github.io/JUNK/" class="site-title-link" data-url="https://mmp03patane.github.io/JUNK/">
+                        ♻️ Junk Removal Website
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </h3>
+                <a href="https://mmp03patane.github.io/JUNK/" class="view-site-button" data-url="https://mmp03patane.github.io/JUNK/">
                     View Site
+                    <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </div>
 
             <div class="text-left"> 
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">🚿 Plumbing Website</h3>
-                <a href="https://mmp03patane.github.io/PLUMBING/" target="_blank" class="view-site-button">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                    <a href="https://mmp03patane.github.io/PLUMBING/" class="site-title-link" data-url="https://mmp03patane.github.io/PLUMBING/">
+                        🚿 Plumbing Website
+                        <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </h3>
+                <a href="https://mmp03patane.github.io/PLUMBING/" class="view-site-button" data-url="https://mmp03patane.github.io/PLUMBING/">
                     View Site
+                    <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </div>
         </div>
@@ -903,9 +947,6 @@
             if (heroSection) {
                 heroSection.classList.add('bounce-animation');
             }
-
-            // The click behavior on .sample-item div is no longer needed since we have direct buttons.
-            // Removing this specific listener to avoid interference or unintended behavior.
         });
 
         // Live Site iFrame Modal Functionality
@@ -916,13 +957,12 @@
         const iframeError = document.getElementById('iframeError');
 
         // This event listener needs to be updated to target the new "View Site" buttons directly.
-        // The old .open-live-site-modal class is now just on the <a> tag.
-        document.querySelectorAll('#samples a.inline-block').forEach(button => { // Targeting the new buttons
-            button.addEventListener('click', (e) => {
+        document.querySelectorAll('#samples .view-site-button, #samples .site-title-link').forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault(); 
 
-                const siteUrl = button.getAttribute('href'); // Get URL from href
-                const siteTitle = button.textContent.trim(); // Get title from button text
+                const siteUrl = link.dataset.url; // Get URL from data-url attribute
+                const siteTitle = link.textContent.trim(); // Get title from link text
 
                 liveSiteIframe.src = siteUrl;
                 iframeError.style.display = 'none';

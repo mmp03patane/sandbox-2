@@ -306,6 +306,23 @@
             accent-color: #f97316;
             cursor: pointer;
         }
+
+        /* Custom button style for the "View Site" buttons */
+        .view-site-button {
+            background-color: #f97316; /* Your orange color */
+            color: white;
+            padding: 12px 32px; /* Replicates px-8 py-3 */
+            border-radius: 9999px; /* Replicates rounded-full */
+            font-size: 1.125rem; /* Replicates text-lg */
+            font-weight: 700; /* Replicates font-bold */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replicates shadow-md */
+            transition: background-color 0.3s ease; /* For smooth hover */
+            display: inline-block; /* Essential for padding and width */
+        }
+
+        .view-site-button:hover {
+            background-color: #ea580c; /* Your darker orange for hover */
+        }
     </style>
 </head>
 <body>
@@ -365,20 +382,22 @@
             👇 Below are mockups of high-performing websites I build from scratch
         </p>
 
-        <div class="flex flex-col items-center space-y-8">
-            <div class="text-left"> <h3 class="text-2xl font-bold text-gray-800 mb-4">⚡ Electrician Website</h3>
+        <div class="flex flex-col space-y-8"> <div class="text-left"> 
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">⚡ Electrician Website</h3>
                 <a href="https://mmp03patane.github.io/ELECTRIC/" target="_blank" class="view-site-button">
                     View Site
                 </a>
             </div>
 
-            <div class="text-left"> <h3 class="text-2xl font-bold text-gray-800 mb-4">♻️ Junk Removal Website</h3>
+            <div class="text-left"> 
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">♻️ Junk Removal Website</h3>
                 <a href="https://mmp03patane.io/JUNK/" target="_blank" class="view-site-button">
                     View Site
                 </a>
             </div>
 
-            <div class="text-left"> <h3 class="text-2xl font-bold text-gray-800 mb-4">🚿 Plumbing Website</h3>
+            <div class="text-left"> 
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">🚿 Plumbing Website</h3>
                 <a href="https://mmp03patane.github.io/PLUMBING/" target="_blank" class="view-site-button">
                     View Site
                 </a>

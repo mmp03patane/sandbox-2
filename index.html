@@ -6,7 +6,6 @@
     <title>Your Website - Custom Web Solutions for Melbourne Tradies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -42,7 +41,6 @@
         .accordion-content.active {
             max-height: 500px; /* Adjust as needed for content length */
         }
-        /* Original sample-item styles, will be partially overridden by new styles below */
         .sample-item {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -309,29 +307,28 @@
             cursor: pointer;
         }
 
-        /* --- STYLES FOR THE SAMPLES SECTION (APPLYING "RUBBISH TYPES" STYLE) --- */
+        /* --- AMENDED STYLES FOR THE SAMPLES SECTION --- */
         #samples {
-            background-color: #efe2ae; /* Background color for the section */
+            background-color: #ffffff; /* Reverted to white background */
             padding: 4rem 1rem;
             text-align: center;
         }
 
         #samples h2 {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
             font-weight: 700;
             font-size: 2.5rem;
-            color: #000000; /* Black heading color */
+            color: #333; /* Reverted to original text color */
             margin-bottom: 2.5rem;
         }
 
-        #samples .grid { /* Target the grid container in #samples */
-            display: flex; /* Override grid to use flexbox for horizontal centering */
-            flex-wrap: wrap; /* Allow panels to wrap to next line on smaller screens */
-            justify-content: center; /* Center panels horizontally */
-            gap: 2rem; /* Space between panels */
-            max-width: 1200px; /* Limit container width */
-            margin: 0 auto; /* Center the container */
-            /* Remove original grid-cols from Tailwind if conflicting: md:grid-cols-2 lg:grid-cols-3 */
+        #samples .grid { 
+            display: flex; /* Use flexbox for horizontal centering */
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
         }
 
         .sample-item { /* Apply panel styles to .sample-item */
@@ -342,97 +339,89 @@
             flex: 1; /* Allow panels to grow and shrink */
             min-width: 280px; /* Minimum width for panels */
             max-width: 350px; /* Maximum width for panels */
-            text-align: left; /* Text inside panel is left-aligned */
+            text-align: center; /* Center align all content for this section */
             display: flex; /* Use flexbox for internal layout */
             flex-direction: column; /* Stack content vertically */
-            justify-content: space-between; /* Push button to the bottom */
-            /* Ensure previous Tailwind classes are overridden or integrated */
-            cursor: pointer; /* Keep cursor pointer for clickability */
-        }
-
-        .sample-item img { /* Ensure images fit within panels */
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px; /* Slightly rounded corners for images */
-            margin-bottom: 1rem;
-            object-fit: cover;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            height: 250px; /* Set a fixed height for visual consistency as content is removed */
         }
 
         .sample-item h3 { /* Style for h3 within .sample-item */
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.7rem; /* Larger font size for panel headings */
-            color: #333; /* A slightly darker color for heading inside panel */
+            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
+            font-size: 1.7rem; 
+            color: #333; 
             margin-bottom: 1rem;
-            text-align: center; /* Center align H3 inside panel */
-            font-weight: 700; /* Ensure Oswald 700 weight */
+            text-align: center; 
+            font-weight: 700; 
         }
         
-        .sample-item p { /* Added a paragraph to sample-item to match the rubbish-panel structure */
-            font-family: 'Nunito Sans', sans-serif;
-            font-size: 1.2rem; /* Larger paragraph font size inside panel */
+        .sample-item p { /* Style for p within .sample-item (now just a placeholder for consistency) */
+            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
+            font-size: 1.2rem; 
             color: #555;
             line-height: 1.5;
-            margin-bottom: 1.5rem; /* Space before the button */
-            flex-grow: 1; /* Allow paragraph to take up available space */
+            margin-bottom: 1.5rem; 
+            flex-grow: 1; 
             text-align: center;
         }
 
         .sample-item .open-live-site-modal { /* Style for the "View Live Site" button */
-            background-color: #198754; /* Green button from rubbish types */
+            background-color: #f97316; /* Changed to orange */
             color: #fff;
             border: none;
             padding: 0.8rem 2rem;
-            font-size: 1rem; /* Slightly smaller font size for panel buttons */
-            font-family: 'Roboto', sans-serif;
+            font-size: 1rem; 
+            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
             text-transform: uppercase;
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-weight: bold;
-            display: block; /* Make button a block element */
-            width: fit-content; /* Fit content width */
-            margin: 0 auto; /* Center the button */
-            text-decoration: none; /* Remove underline */
+            display: block; 
+            width: fit-content; 
+            margin: 0 auto; 
+            text-decoration: none; 
         }
 
         .sample-item .open-live-site-modal:hover {
-            background-color: #5fae60; /* Darker green on hover */
+            background-color: #ea580c; /* Darker orange on hover */
         }
 
-        /* Media Queries for Samples Section to maintain responsiveness */
+        /* Mobile Media Queries for Samples Section */
         @media (max-width: 767px) {
             #samples h2 {
-                font-size: 1.8rem; /* Smaller H2 for mobile */
+                font-size: 1.8rem; 
                 margin-bottom: 1.5rem;
             }
 
             #samples .grid {
-                flex-direction: column; /* Stack panels vertically on mobile */
-                align-items: center; /* Center panels when stacked */
+                flex-direction: column; 
+                align-items: center; 
             }
 
             .sample-item {
                 padding: 1.5rem;
-                min-width: unset; /* Remove min-width to allow better shrinking on very small screens */
-                max-width: 90%; /* Take up more width on small mobile screens */
-                margin-left: auto; /* Center individual panels */
-                margin-right: auto; /* Center individual panels */
+                min-width: unset; 
+                max-width: 90%; 
+                margin-left: auto; 
+                margin-right: auto;
+                height: 200px; /* Adjusted height for mobile */
             }
 
             .sample-item h3 {
-                font-size: 1.5rem; /* Slightly larger H3 for mobile panels */
+                font-size: 1.5rem; 
             }
 
             .sample-item p {
-                font-size: 1.3rem; /* Slightly larger paragraph text for mobile panels */
+                font-size: 1.3rem; 
             }
 
             .sample-item .open-live-site-modal {
-                font-size: 0.9rem; /* Smaller font for panel buttons on mobile */
+                font-size: 0.9rem; 
                 padding: 0.7rem 1.8rem;
             }
         }
-
     </style>
 </head>
 <body>
@@ -492,30 +481,24 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Electrician&font_size=20" class="rounded-lg mb-4 w-full h-auto object-cover">
                     <h3>Electrician Site</h3>
-                    <p>A sleek and modern website designed to attract electrical service leads with a clear call to action and easy navigation.</p>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center open-live-site-modal">
+                    <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Junk%20Removal&font_size=20" class="rounded-lg mb-4 w-full h-auto object-cover">
                     <h3>Junk Removal Site</h3>
-                    <p>A practical and user-friendly site for junk removal services, making it simple for customers to get quotes and book pickups.</p>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center open-live-site-modal">
+                    <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Plumbing&font_size=20" class="rounded-lg mb-4 w-full h-auto object-cover">
                     <h3>Plumbing Service Site</h3>
-                    <p>A professional and responsive website designed for plumbing businesses, featuring service details and easy contact options.</p>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center open-live-site-modal">
+                    <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>

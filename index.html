@@ -352,10 +352,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            /* Removed justify-content: space-between; */
             align-items: center;
-            /* height: 250px; Removed fixed height to allow content to dictate height */
-            /* Min-height to ensure a consistent minimum size even with short titles */
             min-height: 180px; /* Adjusted minimum height for desktop */
             gap: 1rem; /* Add gap between elements inside the panel */
         }
@@ -364,7 +361,6 @@
             font-family: 'Inter', sans-serif;
             font-size: 1.7rem;
             color: #333;
-            /* Removed margin-bottom and instead rely on flex gap or add a smaller margin */
             margin-bottom: 0.5rem; /* Reduced margin to control spacing */
             text-align: center;
             font-weight: 700;
@@ -430,8 +426,8 @@
                 max-width: 90%;
                 margin-left: auto;
                 margin-right: auto;
-                /* REFINED: Removed fixed min-height for mobile to allow content to truly shrink */
-                min-height: unset; /* Let content dictate height on mobile for minimal spacing */
+                /* REFINED: Explicitly setting min-height to a smaller value or auto to shrink the box */
+                min-height: 140px; /* Reduced min-height for mobile */
                 height: auto; /* Ensure height is auto */
                 padding-bottom: 1rem; /* Ensure some padding at the bottom */
             }

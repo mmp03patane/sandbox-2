@@ -314,16 +314,27 @@
             text-align: center;
         }
 
-        #samples h2 {
-            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
-            font-weight: 700;
-            font-size: 2.5rem;
-            color: #333; /* Reverted to original text color */
-            margin-bottom: 2.5rem;
+        #samples h2.section-title { /* Target the specific h2 with section-title class */
+            /* Removed text-center from HTML, now aligning here */
+            text-align: left; /* Aligned to left */
+            margin-left: auto; /* Remove auto to allow alignment to take effect */
+            margin-right: auto; /* Remove auto to allow alignment to take effect */
+            width: fit-content; /* Ensure the underline aligns with content */
+            float: none; /* Clear any floats if they were implied */
+            display: block; /* Ensure it takes full width for text-align to work, or use specific margins */
+            max-width: 1200px; /* Constrain width as before */
+            padding-left: 1rem; /* Add padding to match content alignment */
+            padding-right: 1rem;
+        }
+        /* Adjust section-title::after for left alignment if needed, but it's relative so it should follow */
+        #samples h2.section-title::after {
+            left: 1rem; /* Adjust to match padding of h2 */
+            margin-left: 0; /* Ensure no extra margin */
         }
 
+
         #samples .grid { 
-            display: flex; /* Use flexbox for horizontal centering */
+            display: flex; 
             flex-wrap: wrap; 
             justify-content: center; 
             gap: 2rem; 
@@ -331,33 +342,33 @@
             margin: 0 auto; 
         }
 
-        .sample-item { /* Apply panel styles to .sample-item */
-            background-color: #ffffff; /* Panel background */
+        .sample-item { 
+            background-color: #ffffff; 
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Floating panel shadow */
-            flex: 1; /* Allow panels to grow and shrink */
-            min-width: 280px; /* Minimum width for panels */
-            max-width: 350px; /* Maximum width for panels */
-            text-align: center; /* Center align all content for this section */
-            display: flex; /* Use flexbox for internal layout */
-            flex-direction: column; /* Stack content vertically */
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center content horizontally */
-            height: 250px; /* Set a fixed height for visual consistency as content is removed */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+            flex: 1 1 300px; /* Flex-grow, flex-shrink, and base width for equal sizing */
+            max-width: 350px; /* Maintain max-width */
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; /* Distribute space to push button down */
+            align-items: center; 
+            height: 250px; /* Fixed height for consistency */
         }
 
-        .sample-item h3 { /* Style for h3 within .sample-item */
-            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
-            font-size: 1.7rem; 
+        .sample-item h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 1.7rem; /* Keep original font size */
             color: #333; 
             margin-bottom: 1rem;
             text-align: center; 
-            font-weight: 700; 
+            font-weight: 700;
+            line-height: 1.2; /* Allow two lines for title */
         }
         
-        .sample-item p { /* Style for p within .sample-item (now just a placeholder for consistency) */
-            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
+        .sample-item p { /* This p tag will not be in the final HTML but is here for reference */
+            font-family: 'Inter', sans-serif; 
             font-size: 1.2rem; 
             color: #555;
             line-height: 1.5;
@@ -366,13 +377,13 @@
             text-align: center;
         }
 
-        .sample-item .open-live-site-modal { /* Style for the "View Live Site" button */
+        .sample-item .open-live-site-modal { 
             background-color: #f97316; /* Changed to orange */
             color: #fff;
             border: none;
             padding: 0.8rem 2rem;
-            font-size: 1rem; 
-            font-family: 'Inter', sans-serif; /* Reverted to Inter font */
+            font-size: 1rem; /* Keep original font size */
+            font-family: 'Inter', sans-serif; 
             text-transform: uppercase;
             border-radius: 8px;
             cursor: pointer;
@@ -390,9 +401,16 @@
 
         /* Mobile Media Queries for Samples Section */
         @media (max-width: 767px) {
-            #samples h2 {
+            #samples h2.section-title {
                 font-size: 1.8rem; 
                 margin-bottom: 1.5rem;
+                text-align: center; /* Center on mobile to align with paragraph */
+                padding-left: 0; /* Remove padding on mobile */
+                padding-right: 0;
+            }
+             #samples h2.section-title::after {
+                left: 50%; /* Center the pseudo-element on mobile */
+                transform: translateX(-50%); /* Adjust for accurate centering */
             }
 
             #samples .grid {
@@ -411,10 +429,6 @@
 
             .sample-item h3 {
                 font-size: 1.5rem; 
-            }
-
-            .sample-item p {
-                font-size: 1.3rem; 
             }
 
             .sample-item .open-live-site-modal {
@@ -472,7 +486,7 @@
 
     <section id="samples" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">Site Examples</h2>
+            <h2 class="text-4xl font-bold mb-12 section-title mx-auto">Site Examples</h2>
             <p class="text-left text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
                 Think all websites are built the same? <br><br> Think again...
                 <br><br>
@@ -481,24 +495,21 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Electrician Site</h3>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="open-live-site-modal">
+                    <h3>Electrician<br>Website</h3> <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Junk Removal Site</h3>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="open-live-site-modal">
+                    <h3>Junk Removal<br>Website</h3> <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
                 <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Plumbing Service Site</h3>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="open-live-site-modal">
+                    <h3>Plumbing<br>Website</h3> <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>

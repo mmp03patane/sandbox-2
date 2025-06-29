@@ -6,8 +6,8 @@
     <title>Your Website - Custom Web Solutions for Melbourne Tradies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400&family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
     <style>
-        /* Existing Global Styles */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f8f8;
@@ -42,6 +42,7 @@
         .accordion-content.active {
             max-height: 500px; /* Adjust as needed for content length */
         }
+        /* Original sample-item styles, will be partially overridden by new styles below */
         .sample-item {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -86,15 +87,17 @@
         ::-webkit-scrollbar-thumb {
             background: #888;
             border-radius: 10px;
+            text-align: center;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
 
-        /* Styles for the original contact form (in modal) */
+        /* Styles for the new contact form */
         .form-group-creative {
             margin-bottom: 1.5rem;
         }
+
         .form-group-creative label {
             display: block;
             color: #333;
@@ -102,6 +105,7 @@
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
+
         .form-group-creative input[type="text"],
         .form-group-creative input[type="email"],
         .form-group-creative input[type="tel"],
@@ -117,6 +121,7 @@
             background-color: #fff;
             transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
+
         .form-group-creative input[type="text"]:focus,
         .form-group-creative input[type="email"]:focus,
         .form-group-creative input[type="tel"]:focus,
@@ -127,14 +132,17 @@
             box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
             outline: none;
         }
+
         .form-group-creative textarea {
             min-height: 100px;
             resize: vertical;
         }
+
         .form-group-creative input[type="radio"] {
             margin-right: 0.5rem;
             accent-color: #f97316; /* Changes the color of the radio button itself */
         }
+
         .form-error-message {
             color: #dc2626; /* Red-600 */
             font-size: 0.875rem;
@@ -163,15 +171,18 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .step-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
+
         .step-card .step-icon {
             font-size: 3rem;
             color: #f97316;
             margin-bottom: 1rem;
         }
+
         .step-card .step-number {
             display: inline-block;
             background-color: #f97316;
@@ -194,248 +205,234 @@
             max-height: 0;
             opacity: 0;
         }
+
         .mobile-menu.active {
             max-height: 500px; /* Adjust as needed for menu content */
             opacity: 1;
         }
 
-        /* Interactive Quote Form Styles */
-        #quote-builder .quote-panel {
-            background-color: #ffffff; /* White floating panel */
-            padding: 30px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
-            width: 100%;
-            margin: 0 auto; /* Center the panel */
-            margin-top: 3rem; /* Space below section heading */
+        /* Ensure form labels and inputs are aligned for desktop */
+        @media (min-width: 768px) {
+            .form-group-creative label {
+                text-align: left;
+            }
         }
 
-        #quote-builder h1, #quote-builder h2 { /* Targeting headings within the quote builder section */
-            text-align: center;
-            color: #ffffff; /* White for headings on orange background */
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        #quote-builder h1 { font-size: 2.8em; } /* Larger for main section heading */
-        #quote-builder h2 { font-size: 1.8em; } /* Smaller for panel heading, but still prominent */
-
-        #quote-builder p {
-             color: rgba(255, 255, 255, 0.9); /* Lighter white for text on orange background */
-             text-align: center;
-             max-width: 700px;
-             margin: 0 auto;
-        }
-
-        .quote-panel h3 { /* Inside the white panel */
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #f97316; /* Orange for panel title */
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .quote-panel h4 { /* Panel subheading */
-            font-size: 1.2em;
-            color: #666;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .included-features ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-            text-align: left; /* Left align the included list */
-        }
-
-        .included-features li {
-            background-color: #e9f7ef; /* Light green background */
-            padding: 10px 15px;
-            margin-bottom: 8px;
-            border-radius: 5px;
-            color: #218838; /* Dark green text */
-            font-weight: bold;
-            display: flex; /* For tick and text alignment */
-            align-items: center;
-            font-size: 1.1em;
-        }
-        .included-features li::before {
-            content: '✅'; /* Green tick icon */
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
-
-        .form-section {
-            margin-bottom: 25px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fdfdfd;
-        }
-        .form-section label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: bold;
-        }
-        .form-section input[type="text"],
-        .form-section select,
-        .form-section input[type="radio"] { /* Apply to direct inputs in form-section */
-            width: calc(100% - 20px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 5px;
-            font-size: 1em;
-        }
-
-        .form-section input[type="radio"],
-        .form-section input[type="checkbox"] {
-            width: auto; /* Override full width for radios/checkboxes */
-            margin-right: 8px;
-            accent-color: #f97316; /* Match existing theme */
-        }
-        .form-section p {
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #444;
-            text-align: left; /* Ensure question text is left aligned */
-        }
-
-        /* Styles for Add-on Sections (collapsible) */
-        .add-on-section {
-            margin-bottom: 15px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            overflow: hidden; /* For smooth max-height transition */
-            background-color: #fdfdfd;
-        }
-
-        .add-on-header {
-            width: 100%;
-            padding: 15px;
-            background-color: #f0f0f0; /* Light grey for collapsed header */
-            border: none;
-            text-align: left;
-            font-size: 1.1em;
-            font-weight: bold;
+        /* Styles for the new "Site Inclusions" section */
+        .inclusions-list li {
+            position: relative;
+            padding-left: 1.75rem; /* Space for the checkmark */
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem; /* text-lg */
             color: #333;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
         }
 
-        .add-on-header:hover {
-            background-color: #e5e5e5;
+        .inclusions-list li::before {
+            content: '✔'; /* Heavy Check Mark emoji */
+            position: absolute;
+            left: 0;
+            color: #f97316; /* Changed to your orange color */
         }
 
-        .add-on-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            padding: 0 15px; /* Padding for content when open */
-        }
-
-        .add-on-content.active {
-            max-height: 300px; /* Adjust based on content height */
-            padding-bottom: 15px; /* Add bottom padding when active */
-        }
-
-        .toggle-icon {
-            font-size: 1.5em;
-            color: #f97316; /* Orange color for the icon */
-            transition: transform 0.3s ease;
-        }
-
-        .add-on-header.active .toggle-icon {
-            transform: rotate(45deg); /* Rotate for minus effect */
-        }
-        .add-on-header.active {
-            background-color: #e9f7ef; /* Light green when active */
-            color: #218838; /* Dark green text when active */
-        }
-
-        /* Ensure inputs/selects inside add-on-content inherit styles */
-        .add-on-content label {
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 5px;
+        .added-features-list li {
+            padding-left: 2rem; /* Indent for added features */
+            margin-bottom: 0.5rem;
+            font-size: 1rem; /* text-base */
             color: #555;
-        }
-        .add-on-content p { /* For question inside add-on-content */
-            margin-top: 10px;
-            margin-bottom: 10px;
-            font-weight: normal; /* Less bold than header */
-            color: #444;
-        }
-        .add-on-content input[type="text"],
-        .add-on-content select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
+            position: relative;
         }
 
-
-        button#getPricingBtn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: #f97316; /* Use existing primary button color */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 30px;
-        }
-
-        button#getPricingBtn:hover {
-            background-color: #ea580c; /* Use existing primary button hover color */
-        }
-
-        .pricing-result {
-            margin-top: 30px;
-            padding: 20px;
-            border: 2px dashed #f97316; /* Match primary color */
-            border-radius: 8px;
-            background-color: #fffaf0; /* Lighter background */
-            text-align: center;
-            font-size: 1.1em;
-            color: #333;
-            display: none; /* Hidden by default */
-        }
-
-        .pricing-result p {
-            margin: 10px 0;
-            text-align: left;
-        }
-        .pricing-result h3 {
+        .added-features-list li::before {
+            content: '+';
+            position: absolute;
+            left: 0.75rem;
             color: #f97316;
-            font-size: 1.5em;
-            margin-top: 20px;
+            font-weight: bold;
         }
 
-        .pricing-result strong {
-            color: #ea580c; /* Match a darker shade of primary color */
+        /* Modal styles for "Add More Features" */
+        .feature-modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 60; /* Higher than quote modal */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        .pricing-result ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            text-align: left;
+        .feature-modal.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .pricing-result ul li {
-            padding: 5px 0;
+        .feature-modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 28rem; /* Equivalent to max-w-md */
+            width: 100%;
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .feature-modal.active .feature-modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .feature-checkbox-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .feature-checkbox-group input[type="checkbox"] {
+            margin-right: 0.75rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            accent-color: #f97316;
+            cursor: pointer;
+        }
+
+        /* --- STYLES FOR THE SAMPLES SECTION (APPLYING "RUBBISH TYPES" STYLE) --- */
+        #samples {
+            background-color: #efe2ae; /* Background color for the section */
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        #samples h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #000000; /* Black heading color */
+            margin-bottom: 2.5rem;
+        }
+
+        #samples .grid { /* Target the grid container in #samples */
+            display: flex; /* Override grid to use flexbox for horizontal centering */
+            flex-wrap: wrap; /* Allow panels to wrap to next line on smaller screens */
+            justify-content: center; /* Center panels horizontally */
+            gap: 2rem; /* Space between panels */
+            max-width: 1200px; /* Limit container width */
+            margin: 0 auto; /* Center the container */
+            /* Remove original grid-cols from Tailwind if conflicting: md:grid-cols-2 lg:grid-cols-3 */
+        }
+
+        .sample-item { /* Apply panel styles to .sample-item */
+            background-color: #ffffff; /* Panel background */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Floating panel shadow */
+            flex: 1; /* Allow panels to grow and shrink */
+            min-width: 280px; /* Minimum width for panels */
+            max-width: 350px; /* Maximum width for panels */
+            text-align: left; /* Text inside panel is left-aligned */
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: space-between; /* Push button to the bottom */
+            /* Ensure previous Tailwind classes are overridden or integrated */
+            cursor: pointer; /* Keep cursor pointer for clickability */
+        }
+
+        .sample-item img { /* Ensure images fit within panels */
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Slightly rounded corners for images */
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .sample-item h3 { /* Style for h3 within .sample-item */
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.7rem; /* Larger font size for panel headings */
+            color: #333; /* A slightly darker color for heading inside panel */
+            margin-bottom: 1rem;
+            text-align: center; /* Center align H3 inside panel */
+            font-weight: 700; /* Ensure Oswald 700 weight */
+        }
+        
+        .sample-item p { /* Added a paragraph to sample-item to match the rubbish-panel structure */
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1.2rem; /* Larger paragraph font size inside panel */
             color: #555;
+            line-height: 1.5;
+            margin-bottom: 1.5rem; /* Space before the button */
+            flex-grow: 1; /* Allow paragraph to take up available space */
+            text-align: center;
         }
+
+        .sample-item .open-live-site-modal { /* Style for the "View Live Site" button */
+            background-color: #198754; /* Green button from rubbish types */
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem; /* Slightly smaller font size for panel buttons */
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            display: block; /* Make button a block element */
+            width: fit-content; /* Fit content width */
+            margin: 0 auto; /* Center the button */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .sample-item .open-live-site-modal:hover {
+            background-color: #5fae60; /* Darker green on hover */
+        }
+
+        /* Media Queries for Samples Section to maintain responsiveness */
+        @media (max-width: 767px) {
+            #samples h2 {
+                font-size: 1.8rem; /* Smaller H2 for mobile */
+                margin-bottom: 1.5rem;
+            }
+
+            #samples .grid {
+                flex-direction: column; /* Stack panels vertically on mobile */
+                align-items: center; /* Center panels when stacked */
+            }
+
+            .sample-item {
+                padding: 1.5rem;
+                min-width: unset; /* Remove min-width to allow better shrinking on very small screens */
+                max-width: 90%; /* Take up more width on small mobile screens */
+                margin-left: auto; /* Center individual panels */
+                margin-right: auto; /* Center individual panels */
+            }
+
+            .sample-item h3 {
+                font-size: 1.5rem; /* Slightly larger H3 for mobile panels */
+            }
+
+            .sample-item p {
+                font-size: 1.3rem; /* Slightly larger paragraph text for mobile panels */
+            }
+
+            .sample-item .open-live-site-modal {
+                font-size: 0.9rem; /* Smaller font for panel buttons on mobile */
+                padding: 0.7rem 1.8rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -447,26 +444,26 @@
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="#samples" class="text-gray-600 hover:text-f97316 font-medium">Our Work</a></li>
-                    <li><a href="#quote-builder" class="text-gray-600 hover:text-f97316 font-medium">Build Your Quote</a></li> <li><a href="#about" class="text-gray-600 hover:text-f97316 font-medium">About</a></li>
+                    <li><a href="#about" class="text-gray-600 hover:text-f97316 font-medium">About</a></li>
                     <li><a href="#how-it-works" class="text-gray-600 hover:text-f97316 font-medium">How it Works</a></li>
                     <li><a href="#faq" class="text-gray-600 hover:text-f97316 font-medium">FAQ</a></li>
-                    <li><a href="#contact-modal-trigger" class="text-f97316 hover:text-ea580c font-bold">Get a Quote Call</a></li> </ul>
+                    <li><a href="#contact" class="text-gray-600 hover:text-f97316 font-medium">Get a Quote</a></li>
+                </ul>
             </nav>
 
             <button id="mobileMenuButton" class="md:hidden p-2 text-gray-700 hover:text-f97316 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
 
         <nav id="mobileMenu" class="mobile-menu md:hidden bg-white shadow-inner pt-2 pb-4">
             <ul class="flex flex-col items-center space-y-4">
                 <li><a href="#samples" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">Our Work</a></li>
-                <li><a href="#quote-builder" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">Build Your Quote</a></li> <li><a href="#about" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">About</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">About</a></li>
                 <li><a href="#how-it-works" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">How it Works</a></li>
                 <li><a href="#faq" class="text-gray-700 hover:text-f97316 font-medium text-lg block py-2">FAQ</a></li>
-                <li><a href="#contact-modal-trigger" class="text-f97316 hover:text-ea580c font-bold text-lg block py-2">Get a Quote Call</a></li> </ul>
+                <li><a href="#contact" class="text-f97316 hover:text-ea580c font-bold text-lg block py-2">Get a Quote</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -478,8 +475,8 @@
             <p class="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto">
                 <b>Sick of inconsistent punters?</b> <br><br>Get a high-converting website and start booking more jobs this week!
             </p>
-            <a href="#quote-builder" class="inline-block bg-white text-gray-900 px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
-                Build Your Package!
+            <a href="#contact" class="inline-block bg-white text-gray-900 px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
+                Get Your FREE Quote!
             </a>
         </div>
     </section>
@@ -488,28 +485,36 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">Site Examples</h2>
             <p class="text-left text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-                Check it out for yourself...<br><br> Below are some **live examples** of high performing websites built from the ground up!<br><br> Your customers want answers and they want them quick... <br><br> They want to know **what you do**, **where you do it**, and **how much it will cost them**. The site examples below are *high converting* because they keep it simple and get to the point (making it quicker and easier for customers to *get their quotes* and for you to *book more jobs*). <br><br>❌ No bullsh*t Squarespace sites <br>❌ No hack job templated sites <br><br>✅ Fair dinkum custom coded sites <br>✅ Loads faster than a rat up a drainpipe
+                Think all websites are built the same? <br><br> Think again...
+                <br><br>
+                👇 Below are mockups of high-performing websites I build from scratch.
             </p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Electrician+Website" class="rounded-lg mb-4 w-full h-auto object-cover">
+                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
+                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Electrician&font_size=20" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3>Electrician Site</h3>
+                    <p>A sleek and modern website designed to attract electrical service leads with a clear call to action and easy navigation.</p>
                     <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
-                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Junk+Removal+Website" class="rounded-lg mb-4 w-full h-auto object-cover">
+                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
+                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Junk%20Removal&font_size=20" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3>Junk Removal Site</h3>
+                    <p>A practical and user-friendly site for junk removal services, making it simple for customers to get quotes and book pickups.</p>
                     <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
                     </a>
                 </div>
 
-                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Plumbing+Website" class="rounded-lg mb-4 w-full h-auto object-cover">
+                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
+                    <img src="https://placehold.co/400x250/F97316/FFFFFF?text=Plumbing&font_size=20" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3>Plumbing Service Site</h3>
+                    <p>A professional and responsive website designed for plumbing businesses, featuring service details and easy contact options.</p>
                     <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center open-live-site-modal">
                         View Live Site
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
@@ -519,153 +524,88 @@
         </div>
     </section>
 
-    ---
-
-    <section id="quote-builder" class="gradient-bg py-16">
+    <section id="site-inclusions" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-extrabold section-title mx-auto">
-                Craft Your High-Converting Website Package
-            </h1>
-            <p class="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mt-4">
-                Every tradie business is unique, and so is our pricing. Use this guide to explore our indicative packages and build a solution tailored to your needs. The final quote will reflect your specific project complexities.
-            </p>
-
-            <div class="quote-panel">
-                <h3 class="font-extrabold">High Converting Website</h3>
-                <h4>For all trades and residential service based businesses</h4>
-
-                <div class="included-features">
-                    <ul>
-                        <li>SEO Optimisation</li>
-                        <li>FREE Hosting</li>
-                        <li>SSL Certificate and Securities</li>
-                        <li>Site Speed Optimized</li>
-                        <li>Custom Quote Form / Integration of CMS Form</li>
-                        <li>NO ONGOING COSTS</li>
+            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">Site Inclusions</h2>
+            <p class="text-left text-lg text-gray-600 mb-6">Below are your standard website inclusions. To add additional features click on "Add More Features".</p>
+            <div class="max-w-2xl mx-auto bg-gray-100 p-8 rounded-lg shadow-md">
+                <ul class="inclusions-list mb-6">
+                    <li>SEO Optimisation</li>
+                    <li>FREE Hosting</li>
+                    <li>SSL Certificate and Securities</li>
+                    <li>Site Speed Optimized</li>
+                    <li>Custom Quote Form / Integration of CMS Form</li>
+                    <li>NO ONGOING COSTS</li>
+                </ul>
+                <a href="#" id="addMoreFeaturesLink" class="text-f97316 hover:text-ea580c font-bold inline-flex items-center text-lg">
+                    Add More Features <span class="ml-1 text-2xl font-bold">+</span>
+                </a>
+                <ul id="addedFeaturesDisplay" class="added-features-list mt-6 space-y-2 hidden">
                     </ul>
+                <div class="text-center mt-10">
+                    <button id="getPriceButton" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg hover:transform hover:scale-105 transition duration-300">
+                        Get Price
+                    </button>
                 </div>
-
-                <form id="quoteForm">
-                    <div class="form-section">
-                        <label for="serviceTrade">1. Your service or trade:</label>
-                        <input type="text" id="serviceTrade" name="serviceTrade" placeholder="e.g., Plumbing, Consulting, E-commerce" required>
-                    </div>
-
-                    <div class="add-on-section">
-                        <button type="button" class="add-on-header">
-                            <span>2. How many website pages do you need?</span>
-                            <span class="toggle-icon">+</span>
-                        </button>
-                        <div class="add-on-content">
-                            <p>Select your desired number of pages:</p>
-                            <label><input type="radio" name="numPages" value="1" required> 1 Page (Basic Landing)</label><br>
-                            <label><input type="radio" name="numPages" value="1-3"> 1-3 Pages (Standard Site)</label><br>
-                            <label><input type="radio" name="numPages" value="3-5"> 3-5 Pages (Detailed Site)</label>
-                        </div>
-                    </div>
-
-                    <div class="add-on-section">
-                        <button type="button" class="add-on-header">
-                            <span>3. How many revisions would you like?</span>
-                            <span class="toggle-icon">+</span>
-                        </button>
-                        <div class="add-on-content">
-                            <p>Choose your revision preference:</p>
-                            <label><input type="radio" name="numRevisions" value="2" required> 2 Revisions</label><br>
-                            <label><input type="radio" name="numRevisions" value="3"> 3 Revisions</label><br>
-                            <label><input type="radio" name="numRevisions" value="4"> 4 Revisions</label>
-                        </div>
-                    </div>
-
-                    <div class="add-on-section">
-                        <button type="button" class="add-on-header">
-                            <span>6. Do you have your own domain?</span>
-                            <span class="toggle-icon">+</span>
-                        </button>
-                        <div class="add-on-content">
-                            <p>Tell us about your domain:</p>
-                            <label><input type="radio" name="ownDomain" value="yes" required> Yes, I have one.</label><br>
-                            <label><input type="radio" name="ownDomain" value="no"> No, I need one registered.</label>
-                        </div>
-                    </div>
-
-                    <div class="add-on-section">
-                        <button type="button" class="add-on-header">
-                            <span>9. Do you currently use a CMS? (Jobber, Servicem8 etc)</span>
-                            <span class="toggle-icon">+</span>
-                        </button>
-                        <div class="add-on-content">
-                            <p>Select your current CMS:</p>
-                            <select id="cmsUsed" name="cmsUsed">
-                                <option value="">Select one</option>
-                                <option value="Jobber">Jobber</option>
-                                <option value="Servicem8">Servicem8</option>
-                                <option value="Other">Other</option>
-                                <option value="None">None</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="add-on-section">
-                        <button type="button" class="add-on-header">
-                            <span>11. Would you like us to write all the website content?</span>
-                            <span class="toggle-icon">+</span>
-                        </button>
-                        <div class="add-on-content">
-                            <p>Content creation option:</p>
-                            <label><input type="radio" name="writeContent" value="yes" required> Yes, please write content for me.</label><br>
-                            <label><input type="radio" name="writeContent" value="no"> No, I will provide the content.</label>
-                        </div>
-                    </div>
-
-                    <div class="add-on-section">
-                        <button type="button" class="add-on-header">
-                            <span>12. Do you need any specialised functions?</span>
-                            <span class="toggle-icon">+</span>
-                        </button>
-                        <div class="add-on-content">
-                            <p>Select all specialized functions you need:</p>
-                            <label><input type="checkbox" name="specialFunctions" value="Embedded Calculator"> Embedded Calculator</label><br>
-                            <label><input type="checkbox" name="specialFunctions" value="Pop-up Quote Form"> Pop-up Quote Form</label><br>
-                            <label><input type="checkbox" name="specialFunctions" value="Booking Calendar"> Booking Calendar</label>
-                        </div>
-                    </div>
-
-                    <div class="add-on-section">
-                        <button type="button" class="add-on-header">
-                            <span>13. Do you need to link Google Reviews to your website?</span>
-                            <span class="toggle-icon">+</span>
-                        </button>
-                        <div class="add-on-content">
-                            <p>Google Reviews integration:</p>
-                            <label><input type="radio" name="googleReviews" value="yes" required> Yes</label><br>
-                            <label><input type="radio" name="googleReviews" value="no"> No</label>
-                        </div>
-                    </div>
-
-                    <button type="submit" id="getPricingBtn">GET PRICING</button>
-                </form>
-
-                <div id="pricingResult" class="pricing-result">
-                    </div>
             </div>
         </div>
     </section>
 
-    ---
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">Your Questions, Answered.</h2>
+            <p class="text-left text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+                We know you have questions, and we're here to give you straightforward answers. No hidden clauses, just transparency.
+            </p>
 
-    <section id="about" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4 text-center max-w-3xl">
-            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">About Creative365</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Michael Patane Photo" class="profile-photo" />
-                <p class="mb-4">Hey everyone,</p>
-                <p class="mb-4">I'm **Michael Patane**, and I run **Creative365:** *A business consultancy that helps residential service businesses grow.*</p>
-                <p class="mb-4">I’ve worked with some of the biggest companies in Australia:</p>
-                <p class="mb-4">At **GLG**, I clocked up **hundreds of consulting hours** helping service-based businesses with anything from franchising advice to lead generation. Electricians, plumbers, gardeners, painters, and general trades. I've seen it all...</p>
-                <p class="mb-4">At **Jim’s Group**, I helped streamline onboarding operations for franchisees. I hosted a monthly lecture teaching mowing franchisees how to use technology to **quote**, **schedule** and **invoice** clients.</p>
-                <p class="mb-4">At **MYOB**, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on **internal efficiencies** to **elevate customer success experiences**.</p>
-                <p>And now, with **Creative365**, I help service-based business grow by designing **customer acquisition** and **retention** strategies that generate **predictable revenue**.</p>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>Do I own the IP once the site is done?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2">Absolutely, 100%! When we build your website, it's *your* website. You own all the intellectual property, including the code, design, and content. We simply build it for you. There are no ongoing licensing fees or proprietary systems locking you in. Complete transparency, complete ownership.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>Do you use a CMS, or just templates?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2"><strong>Hell no!</strong> We believe in crafting unique, high-performance digital assets. We don't use bloated Content Management Systems (CMS) like WordPress, Wix, or Shopify for our core builds. Every single website we deliver is coded from the ground up, typically managed with Git (like GitHub) for version control and deployment. This means zero unnecessary code, ultimate flexibility, and blazing-fast speeds. No templates, no hacks, just bespoke code.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>I've tried to build my own site on a CMS, can you save my DIY disaster?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2">You're not alone! Many tradies attempt DIY websites only to find them slow, inflexible, or just not professional enough. We can absolutely help. We'll assess what's salvageable from your existing efforts (content, branding assets etc.) and then use that as a foundation to build a completely new, high-performance, custom website from the ground up. We turn your 'disaster' into a digital asset that works for you.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                        <span>Are your websites fast and not bloated like a CMS?</span>
+                        <span class="transform transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-700">
+                        <p class="pt-2">Yes, it's one of our core promises! Traditional CMS platforms are notorious for being bloated with unnecessary features, plugins, and code that slow them down. Because we code from scratch, we include only what's absolutely essential for your business. This results in incredibly fast loading times, superior SEO performance, and a smoother experience for your potential customers. Our websites are built to perform, not to bloat.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -673,7 +613,7 @@
     <section id="how-it-works" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">How We Build Your Online Presence</h2>
-            <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p class="text-left text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
                 Getting a powerful, lead-generating website is simpler than you think. Here’s our straightforward process:
             </p>
 
@@ -705,66 +645,23 @@
         </div>
     </section>
 
-    <section id="faq" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">Your Questions, Answered.</h2>
-            <p class="text-center text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-                We know you have questions, and we're here to give you straightforward answers. No hidden clauses, just transparency.
-            </p>
-
-            <div class="max-w-3xl mx-auto space-y-4">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
-                        <span>Do I own the IP once the site is done?</span>
-                        <span class="transform transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </span>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-700">
-                        <p class="pt-2">Absolutely, 100%! When we build your website, it's *your* website. You own all the intellectual property, including the code, design, and content. We simply build it for you. There are no ongoing licensing fees or proprietary systems locking you in. Complete transparency, complete ownership.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
-                        <span>Do you use a CMS, or just templates?</span>
-                        <span class="transform transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </span>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-700">
-                        <p class="pt-2">**Hell no!** We believe in crafting unique, high-performance digital assets. We don't use bloated Content Management Systems (CMS) like WordPress, Wix, or Shopify for our core builds. Every single website we deliver is coded from the ground up, typically managed with Git (like GitHub) for version control and deployment. This means zero unnecessary code, ultimate flexibility, and blazing-fast speeds. No templates, no hacks, just bespoke code.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
-                        <span>I've tried to build my own site on a CMS, can you save my DIY disaster?</span>
-                        <span class="transform transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </span>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-700">
-                        <p class="pt-2">You're not alone! Many tradies attempt DIY websites only to find them slow, inflexible, or just not professional enough. We can absolutely help. We'll assess what's salvageable from your existing efforts (content, branding assets etc.) and then use that as a foundation to build a completely new, high-performance, custom website from the ground up. We turn your 'disaster' into a digital asset that works for you.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
-                        <span>Are your websites fast and not bloated like a CMS?</span>
-                        <span class="transform transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </span>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-700">
-                        <p class="pt-2">Yes, it's one of our core promises! Traditional CMS platforms are notorious for being bloated with unnecessary features, plugins, and code that slow them down. Because we code from scratch, we include only what's absolutely essential for your business. This results in incredibly fast loading times, superior SEO performance, and a smoother experience for your potential customers. Our websites are built to perform, not to bloat.</p>
-                    </div>
-                </div>
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">About Creative365</h2>
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <img src="https://github.com/mmp03patane/creative/blob/main/PROFILE%20PHOTO%203.PNG?raw=true" alt="Michael Patane Photo" class="profile-photo" />
+                <p class="mb-4">Hey everyone,</p>
+                <p class="mb-4">I'm <b>Michael Patane</b>, and I run <b>Creative365:</b> <i>A business consultancy that helps residential service businesses grow.</i></p>
+                <p class="mb-4">I’ve worked with some of the biggest companies in Australia:</p>
+                <p class="mb-4">At <b>GLG</b>, I clocked up <b>hundreds of consulting hours</b> helping service-based businesses with anything from franchising advice to lead generation. Electricians, plumbers, gardeners, painters, and general trades. I've seen it all...</p>
+                <p class="mb-4">At <b>Jim’s Group</b>, I helped streamline onboarding operations for franchisees. I hosted a monthly lecture teaching mowing franchisees how to use technology to <b>quote</b>, <b>schedule</b> and <b>invoice</b> clients.</p>
+                <p class="mb-4">At <b>MYOB</b>, I assisted medium sized businesses to engage digitally and drive adoption through education. I focused on <b>internal efficiencies</b> to <b>elevate customer success experiences</b>.</p>
+                <p>And now, with <b>Creative365</b>, I help service-based business grow by designing <b>customer acquisition</b> and <b>retention</b> strategies that generate <b>predictable revenue</b>.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact-modal-trigger" class="gradient-bg text-white py-20 rounded-t-3xl shadow-xl">
+    <section id="contact" class="gradient-bg text-white py-20 rounded-t-3xl shadow-xl">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-6">
                 Ready for a Website That Generates Leads?
@@ -772,7 +669,7 @@
             <p class="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto">
                 Our websites aren't just pretty faces; they're quote-generating motherf*cking machines! Let's build yours.
             </p>
-            <button id="openContactModal" class="inline-block bg-white text-f97316 px-12 py-5 rounded-full text-xl font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
+            <button id="openQuoteModal" class="inline-block bg-white text-f97316 px-12 py-5 rounded-full text-xl font-bold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300">
                 Get Your Custom Quote!
             </button>
         </div>
@@ -876,6 +773,37 @@
         </div>
     </div>
 
+    <div id="addFeaturesModal" class="feature-modal">
+        <div class="feature-modal-content">
+            <button id="closeFeaturesModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold leading-none">&times;</button>
+            <h3 class="text-2xl font-bold text-center text-f97316 mb-6">Add More Features</h3>
+            <p class="text-center text-gray-600 mb-6">Select additional features for your website:</p>
+            
+            <div class="feature-checkbox-group">
+                <label>
+                    <input type="checkbox" name="feature" value="Additional Revisions" data-display-text="Additional Revisions">
+                    Additional Revisions
+                </label>
+                <label>
+                    <input type="checkbox" name="feature" value="Additional Pages" data-display-text="Additional Pages">
+                    Additional Pages
+                </label>
+                <label>
+                    <input type="checkbox" name="feature" value="Special Functions (e.g., Calendar, Calculator)" data-display-text="Special Functions (Calendar, Calculator)">
+                    Special Functions (e.g., Calendar, Calculator)
+                </label>
+                <label>
+                    <input type="checkbox" name="feature" value="Link to Google Reviews" data-display-text="Link to Google Reviews">
+                    Link to Google Reviews
+                </label>
+            </div>
+            
+            <button id="saveFeaturesButton" class="w-full btn-primary text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transform hover:scale-105 transition duration-300">
+                Save Features
+            </button>
+        </div>
+    </div>
+
 
     <footer class="bg-gray-900 text-white py-10">
         <div class="container mx-auto px-4 text-center">
@@ -884,7 +812,7 @@
     </footer>
 
     <script>
-        // Accordion Functionality for FAQ
+        // Accordion Functionality
         document.querySelectorAll('.accordion-button').forEach(button => {
             button.addEventListener('click', () => {
                 const accordionContent = button.nextElementSibling;
@@ -922,15 +850,15 @@
         // --- END Mobile Menu Functionality ---
 
 
-        // Original "Get a Quote" Modal Functionality (for scheduling a call)
-        const openContactModalBtn = document.getElementById('openContactModal'); // Renamed ID
+        // Quote Modal Functionality
+        const openQuoteModalBtn = document.getElementById('openQuoteModal');
         const closeQuoteModalBtn = document.getElementById('closeQuoteModal');
         const quoteModal = document.getElementById('quoteModal');
         const modalContent = document.getElementById('modalContent');
         const creative365ContactForm = document.getElementById('creative365ContactForm'); 
         const formMessage = document.getElementById('formMessage');
 
-        openContactModalBtn.addEventListener('click', () => { // Event listener for the original modal button
+        openQuoteModalBtn.addEventListener('click', () => {
             quoteModal.classList.remove('hidden');
             setTimeout(() => {
                 modalContent.classList.remove('scale-95', 'opacity-0');
@@ -956,7 +884,7 @@
             }
         });
 
-        // Form validation and submission for the original contact form (still in modal)
+        // Form validation and submission for the new form
         creative365ContactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             formMessage.textContent = 'Sending your request...';
@@ -1046,6 +974,11 @@
             }
 
             const formData = new FormData(creative365ContactForm); 
+            
+            // Append selected features to form data
+            document.querySelectorAll('#addedFeaturesDisplay li').forEach(item => {
+                formData.append('Added_Feature[]', item.textContent.trim());
+            });
 
             try {
                 const response = await fetch(creative365ContactForm.action, {
@@ -1061,6 +994,9 @@
                     formMessage.classList.remove('text-gray-600', 'text-red-600');
                     formMessage.classList.add('text-green-600');
                     creative365ContactForm.reset(); 
+                    // Optionally clear added features display after submission
+                    document.getElementById('addedFeaturesDisplay').innerHTML = '';
+                    document.getElementById('addedFeaturesDisplay').classList.add('hidden');
                 } else {
                     const data = await response.json();
                     if (data.errors) {
@@ -1085,6 +1021,26 @@
             if (heroSection) {
                 heroSection.classList.add('bounce-animation');
             }
+
+            // Make the entire panel clickable for live site examples
+            document.querySelectorAll('.sample-item').forEach(panel => {
+                panel.addEventListener('click', (e) => {
+                    // Find the 'View Live Site' link within this panel
+                    const liveSiteLink = panel.querySelector('.open-live-site-modal');
+
+                    // Check if the click was directly on the link or its children (SVG, text)
+                    // If it was, let the link's default behavior handle it (which it does via its own event listener)
+                    if (liveSiteLink && (e.target === liveSiteLink || liveSiteLink.contains(e.target))) {
+                        return; // Let the existing click handler for the link fire
+                    }
+
+                    // If the click was on the panel but NOT on the specific "View Live Site" link,
+                    // then programmatically trigger the link's click event.
+                    if (liveSiteLink) {
+                        liveSiteLink.click();
+                    }
+                });
+            });
         });
 
         // Live Site iFrame Modal Functionality
@@ -1144,142 +1100,54 @@
             }
         });
 
+        // New "Add More Features" Modal Functionality
+        const addMoreFeaturesLink = document.getElementById('addMoreFeaturesLink');
+        const addFeaturesModal = document.getElementById('addFeaturesModal');
+        const closeFeaturesModalBtn = document.getElementById('closeFeaturesModal');
+        const saveFeaturesButton = document.getElementById('saveFeaturesButton');
+        const addedFeaturesDisplay = document.getElementById('addedFeaturesDisplay');
+        const featureCheckboxes = document.querySelectorAll('#addFeaturesModal input[name="feature"]');
 
-        // --- New Interactive Quote Form Logic ---
-        const quoteForm = document.getElementById('quoteForm');
-        const pricingResultDiv = document.getElementById('pricingResult');
-
-        // Toggle functionality for add-on sections
-        document.querySelectorAll('.add-on-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('.toggle-icon');
-
-                header.classList.toggle('active');
-                content.classList.toggle('active');
-
-                if (content.classList.contains('active')) {
-                    icon.textContent = '−'; // Change to minus
-                } else {
-                    icon.textContent = '+'; // Change back to plus
-                }
+        addMoreFeaturesLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            addFeaturesModal.classList.add('active');
+            // Reset checkboxes state when opening the modal
+            featureCheckboxes.forEach(checkbox => {
+                const featureText = checkbox.dataset.displayText;
+                checkbox.checked = Array.from(addedFeaturesDisplay.children).some(li => li.textContent.trim() === featureText);
             });
         });
 
-
-        quoteForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Collect form data
-            const formData = new FormData(quoteForm);
-            const selections = {};
-
-            // Process form data to handle multiple selections for checkboxes
-            for (let [key, value] of formData.entries()) {
-                if (key === 'specialFunctions') {
-                    if (!selections[key]) {
-                        selections[key] = [];
-                    }
-                    selections[key].push(value);
-                } else {
-                    selections[key] = value;
-                }
-            }
-
-            // Add standard inclusions (these are displayed, not selected by user in form)
-            selections['SEO Optimisation'] = 'Included';
-            selections['FREE Hosting'] = 'Included';
-            selections['SSL Certificate and Securities'] = 'Included';
-            selections['Site Speed Optimized'] = 'Included';
-            selections['Custom Quote Form / Integration of CMS Form'] = 'Included';
-            selections['NO ONGOING COSTS'] = 'Included';
-
-            // --- Placeholder for your pricing logic ---
-            // YOU WILL NEED TO REPLACE THIS SECTION WITH YOUR ACTUAL PRICING CALCULATIONS
-            let basePrice = 1000; // Example base price
-
-            // Adjust price based on selections
-            switch (selections.numPages) {
-                case '1':
-                    basePrice += 100;
-                    break;
-                case '1-3':
-                    basePrice += 300;
-                    break;
-                case '3-5':
-                    basePrice += 600;
-                    break;
-            }
-
-            switch (selections.numRevisions) {
-                case '3':
-                    basePrice += 50;
-                    break;
-                case '4':
-                    basePrice += 100;
-                    break;
-            }
-
-            if (selections.ownDomain === 'no') {
-                basePrice += 50; // Example cost for domain registration if they don't have one
-            }
-
-            if (selections.writeContent === 'yes') {
-                basePrice += 400; // Example cost for content writing
-            }
-
-            if (selections.specialFunctions) {
-                if (selections.specialFunctions.includes('Embedded Calculator')) {
-                    basePrice += 200;
-                }
-                if (selections.specialFunctions.includes('Pop-up Quote Form')) {
-                    basePrice += 150;
-                }
-                if (selections.specialFunctions.includes('Booking Calendar')) {
-                    basePrice += 300;
-                }
-            }
-
-            if (selections.googleReviews === 'yes') {
-                basePrice += 75; // Example cost for Google Reviews integration
-            }
-
-            // --- End of placeholder pricing logic ---
-
-            // Display the results
-            let resultHTML = `<h2>Your Estimated Package Details:</h2>`;
-            resultHTML += `<p><strong>Service/Trade:</strong> ${selections.serviceTrade || 'Not specified'}</p>`;
-            resultHTML += `<p><strong>Website Pages:</strong> ${selections.numPages || 'Not selected'}</p>`;
-            resultHTML += `<p><strong>Revisions:</strong> ${selections.numRevisions || 'Not selected'}</p>`;
-            resultHTML += `<p><strong>Own Domain:</strong> ${selections.ownDomain ? (selections.ownDomain === 'yes' ? 'Yes' : 'No (will need to be acquired)') : 'Not selected'}</p>`;
-            resultHTML += `<p><strong>Using a CMS:</strong> ${selections.cmsUsed || 'Not selected'}</p>`;
-            resultHTML += `<p><strong>Website Content Written by Us:</strong> ${selections.writeContent ? (selections.writeContent === 'yes' ? 'Yes' : 'No') : 'Not selected'}</p>`;
-            
-            if (selections.specialFunctions && selections.specialFunctions.length > 0) {
-                resultHTML += `<p><strong>Specialised Functions:</strong> ${selections.specialFunctions.join(', ')}</p>`;
-            } else {
-                resultHTML += `<p><strong>Specialised Functions:</strong> None selected</p>`;
-            }
-            
-            resultHTML += `<p><strong>Google Reviews Linked:</strong> ${selections.googleReviews ? (selections.googleReviews === 'yes' ? 'Yes' : 'No') : 'Not selected'}</p>`;
-            
-            resultHTML += `<h3>Standard Inclusions:</h3><ul>`;
-            resultHTML += `<li>✅ SEO Optimisation</li>`;
-            resultHTML += `<li>✅ FREE Hosting</li>`;
-            resultHTML += `<li>✅ SSL Certificate and Securities</li>`;
-            resultHTML += `<li>✅ Site Speed Optimized</li>`;
-            resultHTML += `<li>✅ Custom Quote Form / Integration of CMS Form</li>`;
-            resultHTML += `<li>✅ NO ONGOING COSTS</li>`;
-            resultHTML += `</ul>`;
-
-            resultHTML += `<h3>Estimated Price: <strong>$${basePrice.toLocaleString()}</strong></h3>`; // Format as currency
-
-            pricingResultDiv.innerHTML = resultHTML;
-            pricingResultDiv.style.display = 'block'; // Show the results section
-            pricingResultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the results
+        closeFeaturesModalBtn.addEventListener('click', () => {
+            addFeaturesModal.classList.remove('active');
         });
-        // --- End New Interactive Quote Form Logic ---
 
+        addFeaturesModal.addEventListener('click', (e) => {
+            if (e.target === addFeaturesModal) {
+                addFeaturesModal.classList.remove('active');
+            }
+        });
+
+        saveFeaturesButton.addEventListener('click', () => {
+            addedFeaturesDisplay.innerHTML = ''; // Clear previous selections
+            let hasAddedFeatures = false;
+            featureCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = checkbox.dataset.displayText;
+                    addedFeaturesDisplay.appendChild(listItem);
+                    hasAddedFeatures = true;
+                }
+            });
+
+            if (hasAddedFeatures) {
+                addedFeaturesDisplay.classList.remove('hidden');
+            } else {
+                addedFeaturesDisplay.classList.add('hidden');
+            }
+
+            addFeaturesModal.classList.remove('active');
+        });
     </script>
 </body>
 </html>

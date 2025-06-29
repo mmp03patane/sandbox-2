@@ -306,143 +306,6 @@
             accent-color: #f97316;
             cursor: pointer;
         }
-
-        /* --- AMENDED STYLES FOR THE SAMPLES SECTION --- */
-        #samples {
-            background-color: #ffffff; /* Reverted to white background */
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-
-        #samples h2.section-title { /* Target the specific h2 with section-title class */
-            text-align: left; /* Aligned to left */
-            margin-left: 0; /* Ensures it starts from the left edge of its container */
-            margin-right: auto;
-            width: fit-content;
-            float: none;
-            display: block;
-            max-width: 1200px; /* Constrain width as before */
-            /* Added padding from container to match text align */
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        /* Adjust section-title::after for left alignment if needed, but it's relative so it should follow */
-        #samples h2.section-title::after {
-            left: 1rem; /* Adjust to match padding of h2 */
-            margin-left: 0; /* Ensure no extra margin */
-        }
-
-
-        #samples .grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .sample-item {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            flex: 1 1 300px; /* Flex-grow, flex-shrink, and base width for equal sizing */
-            max-width: 350px; /* Maintain max-width */
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 180px; /* Adjusted minimum height for desktop */
-            gap: 1rem; /* Add gap between elements inside the panel */
-        }
-
-        .sample-item h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.7rem;
-            color: #333;
-            margin-bottom: 0.5rem; /* Reduced margin to control spacing */
-            text-align: center;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .sample-item p { /* This p tag will not be in the final HTML but is here for reference */
-            font-family: 'Inter', sans-serif;
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        .sample-item .open-live-site-modal {
-            background-color: #f97316; /* Changed to orange */
-            color: #fff;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-            display: block;
-            width: fit-content;
-            margin-top: auto; /* Push button to the bottom if there's extra space, or just use margin-top */
-            margin-left: auto; /* Center button */
-            margin-right: auto; /* Center button */
-            text-decoration: none;
-        }
-
-        .sample-item .open-live-site-modal:hover {
-            background-color: #ea580c; /* Darker orange on hover */
-        }
-
-        /* Mobile Media Queries for Samples Section */
-        @media (max-width: 767px) {
-            #samples h2.section-title {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-                text-align: center; /* Center on mobile to align with paragraph */
-                padding-left: 0; /* Remove padding on mobile */
-                padding-right: 0;
-            }
-             #samples h2.section-title::after {
-                left: 50%; /* Center the pseudo-element on mobile */
-                transform: translateX(-50%); /* Adjust for accurate centering */
-            }
-
-            #samples .grid {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .sample-item {
-                padding: 1.5rem;
-                min-width: unset;
-                max-width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-                /* REFINED: Explicitly setting min-height to a smaller value or auto to shrink the box */
-                min-height: 140px; /* Reduced min-height for mobile */
-                height: auto; /* Ensure height is auto */
-                padding-bottom: 1rem; /* Ensure some padding at the bottom */
-            }
-
-            .sample-item h3 {
-                font-size: 1.5rem;
-                margin-bottom: 0.75rem; /* Slightly more margin for title on mobile */
-            }
-
-            .sample-item .open-live-site-modal {
-                font-size: 0.9rem;
-                padding: 0.7rem 1.8rem;
-                margin-top: 1rem; /* Ensure some space above button on mobile */
-            }
-        }
     </style>
 </head>
 <body>
@@ -462,7 +325,9 @@
             </nav>
 
             <button id="mobileMenuButton" class="md:hidden p-2 text-gray-700 hover:text-f97316 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
             </button>
         </div>
 
@@ -493,35 +358,32 @@
 
     <section id="samples" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-12 section-title mx-auto">Site Examples</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 section-title mx-auto">Site Examples</h2>
             <p class="text-left text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
                 Think all websites are built the same? <br><br> Think again...
                 <br><br>
-                👇 Below are mockups of high-performing websites I build from scratch.
+                👇 Below are mockups of high-performing websites I build from scratch
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Electrician<br>Website</h3>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/ELECTRIC/" data-site-title="Sparky's Electrics Site" class="open-live-site-modal">
-                        View Live Site
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
+            <div class="flex flex-col items-center space-y-8">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">1) Electrician Website</h3>
+                    <a href="https://mmp03patane.github.io/ELECTRIC/" target="_blank" class="inline-block bg-f97316 text-white px-8 py-3 rounded-full text-lg font-bold shadow-md hover:bg-ea580c transition duration-300">
+                        View Site
                     </a>
                 </div>
 
-                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Junk Removal<br>Website</h3>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/JUNK/" data-site-title="Junk - GitHub Pages Example" class="open-live-site-modal">
-                        View Live Site
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">2) Junk Removal Website</h3>
+                    <a href="https://mmp03patane.github.io/JUNK/" target="_blank" class="inline-block bg-f97316 text-white px-8 py-3 rounded-full text-lg font-bold shadow-md hover:bg-ea580c transition duration-300">
+                        View Site
                     </a>
                 </div>
 
-                <div class="sample-item bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer">
-                    <h3>Plumbing<br>Website</h3>
-                    <a href="#" data-site-url="https://mmp03patane.github.io/PLUMBING/" data-site-title="GreenThumb Landscaping Site" class="open-live-site-modal">
-                        View Live Site
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-4 0h6m0 0l-6-6m6 6L14 10"></path></svg>
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">3) Plumbing Website</h3>
+                    <a href="https://mmp03patane.github.io/PLUMBING/" target="_blank" class="inline-block bg-f97316 text-white px-8 py-3 rounded-full text-lg font-bold shadow-md hover:bg-ea580c transition duration-300">
+                        View Site
                     </a>
                 </div>
             </div>
@@ -1026,25 +888,8 @@
                 heroSection.classList.add('bounce-animation');
             }
 
-            // Make the entire panel clickable for live site examples
-            document.querySelectorAll('.sample-item').forEach(panel => {
-                panel.addEventListener('click', (e) => {
-                    // Find the 'View Live Site' link within this panel
-                    const liveSiteLink = panel.querySelector('.open-live-site-modal');
-
-                    // Check if the click was directly on the link or its children (SVG, text)
-                    // If it was, let the link's default behavior handle it (which it does via its own event listener)
-                    if (liveSiteLink && (e.target === liveSiteLink || liveSiteLink.contains(e.target))) {
-                        return; // Let the existing click handler for the link fire
-                    }
-
-                    // If the click was on the panel but NOT on the specific "View Live Site" link,
-                    // then programmatically trigger the link's click event.
-                    if (liveSiteLink) {
-                        liveSiteLink.click();
-                    }
-                });
-            });
+            // The click behavior on .sample-item div is no longer needed since we have direct buttons.
+            // Removing this specific listener to avoid interference or unintended behavior.
         });
 
         // Live Site iFrame Modal Functionality
@@ -1054,12 +899,14 @@
         const liveSiteIframe = document.getElementById('liveSiteIframe');
         const iframeError = document.getElementById('iframeError');
 
-        document.querySelectorAll('.open-live-site-modal').forEach(button => {
+        // This event listener needs to be updated to target the new "View Site" buttons directly.
+        // The old .open-live-site-modal class is now just on the <a> tag.
+        document.querySelectorAll('#samples a.inline-block').forEach(button => { // Targeting the new buttons
             button.addEventListener('click', (e) => {
                 e.preventDefault(); 
 
-                const siteUrl = button.getAttribute('data-site-url');
-                const siteTitle = button.getAttribute('data-site-title'); 
+                const siteUrl = button.getAttribute('href'); // Get URL from href
+                const siteTitle = button.textContent.trim(); // Get title from button text
 
                 liveSiteIframe.src = siteUrl;
                 iframeError.style.display = 'none';

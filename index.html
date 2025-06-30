@@ -307,7 +307,7 @@
             cursor: pointer;
         }
 
-        /* Custom button style for the "View Site" buttons */
+        /* Custom button style for the "View Site" buttons (now removed) */
         .view-site-button {
             background-color: #f97316; /* Your orange color */
             color: white;
@@ -347,6 +347,24 @@
             height: 1em;
             vertical-align: middle;
             margin-left: 0.25em;
+        }
+
+        /* New styles for the "View site" text link */
+        .view-site-text-link {
+            display: block; /* Make it a block element to sit below the title */
+            color: #333; /* Black color */
+            font-weight: bold; /* Bold text */
+            text-decoration: underline; /* Underlined text */
+            font-size: 1rem; /* Same font size as paragraph text (text-base) */
+            margin-top: 0.5rem; /* Space below the title */
+            padding-left: 0.25rem; /* Adjust this value to align 'V' under 'E', 'J', 'P' */
+            cursor: pointer;
+            width: fit-content; /* Ensure the underline only covers the text */
+            transition: color 0.3s ease;
+        }
+
+        .view-site-text-link:hover {
+            color: #f97316; /* Optional: Change color on hover for better UX */
         }
     </style>
 </head>
@@ -409,41 +427,38 @@
 
         <div class="flex flex-col space-y-8"> 
             <div class="text-left"> 
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
                     <a href="https://mmp03patane.github.io/ELECTRIC/" class="site-title-link" data-url="https://mmp03patane.github.io/ELECTRIC/">
                         ⚡ Electrician Website
                         <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                 </h3>
-                <a href="https://mmp03patane.github.io/ELECTRIC/" class="view-site-button" data-url="https://mmp03patane.github.io/ELECTRIC/">
-                    View Site
-                    <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                <a href="https://mmp03patane.github.io/ELECTRIC/" class="view-site-text-link" data-url="https://mmp03patane.github.io/ELECTRIC/">
+                    View site
                 </a>
             </div>
 
             <div class="text-left"> 
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
                     <a href="https://mmp03patane.github.io/JUNK/" class="site-title-link" data-url="https://mmp03patane.github.io/JUNK/">
                         ♻️ Junk Removal Website
                         <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                 </h3>
-                <a href="https://mmp03patane.github.io/JUNK/" class="view-site-button" data-url="https://mmp03patane.github.io/JUNK/">
-                    View Site
-                    <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                <a href="https://mmp03patane.github.io/JUNK/" class="view-site-text-link" data-url="https://mmp03patane.github.io/JUNK/">
+                    View site
                 </a>
             </div>
 
             <div class="text-left"> 
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">
                     <a href="https://mmp03patane.github.io/PLUMBING/" class="site-title-link" data-url="https://mmp03patane.github.io/PLUMBING/">
                         🚿 Plumbing Website
                         <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                 </h3>
-                <a href="https://mmp03patane.github.io/PLUMBING/" class="view-site-button" data-url="https://mmp03patane.github.io/PLUMBING/">
-                    View Site
-                    <svg class="external-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                <a href="https://mmp03patane.github.io/PLUMBING/" class="view-site-text-link" data-url="https://mmp03patane.github.io/PLUMBING/">
+                    View site
                 </a>
             </div>
         </div>
@@ -498,7 +513,7 @@
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <button class="accordion-button w-full flex justify-between items-center p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
+                    <button class="accordion-button w-full flex justify-between items- Genter p-6 text-xl font-semibold text-left text-gray-800 hover:bg-gray-100 focus:outline-none">
                         <span>Do you use a CMS, or just templates?</span>
                         <span class="transform transition-transform duration-300">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -956,13 +971,12 @@
         const liveSiteIframe = document.getElementById('liveSiteIframe');
         const iframeError = document.getElementById('iframeError');
 
-        // This event listener needs to be updated to target the new "View Site" buttons directly.
-        document.querySelectorAll('#samples .view-site-button, #samples .site-title-link').forEach(link => {
+        // This event listener needs to be updated to target the new "View Site" links.
+        document.querySelectorAll('#samples .site-title-link, #samples .view-site-text-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault(); 
 
                 const siteUrl = link.dataset.url; // Get URL from data-url attribute
-                const siteTitle = link.textContent.trim(); // Get title from link text
 
                 liveSiteIframe.src = siteUrl;
                 iframeError.style.display = 'none';
@@ -971,7 +985,7 @@
                     try {
                         const iframeDoc = liveSiteIframe.contentWindow.document;
                     } catch (e) {
-                        console.warn(`iFrame loading issue for ${siteTitle} at ${siteUrl}, possibly security restrictions:`, e);
+                        console.warn(`iFrame loading issue for ${siteUrl}, possibly security restrictions:`, e);
                         iframeError.style.display = 'block'; 
                         liveSiteIframe.src = 'about:blank'; 
                     }
